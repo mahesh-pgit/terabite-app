@@ -1,3 +1,21 @@
 # Tera Bite App
 
-- 
+-   Low level Planning
+    -   Header
+        -   Logo
+        -   Nav Items
+    -   Body
+        -   Search
+        -   RestaurantContainer
+            -   RestaurantCard
+                -   Image
+                -   Restaurant Name
+                -   Cuisine
+                -   Star Rating
+                -   ETA
+                -   Area Name
+    -   Footer
+        -   Copyright
+        -   Links
+        -   Address
+        -   Contact
