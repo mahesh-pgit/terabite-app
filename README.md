@@ -1,6 +1,6 @@
 # Tera Bite App
 
--   Low level Planning
+-   Low Level Planning
     -   Header
         -   Logo
         -   Nav Items
