@@ -7,6 +7,7 @@ import { SWIGGY_API_URL } from "../utils/constants";
 
 const Body = () => {
 	const [resList, setResList] = useState([]);
+	const [filteredResList, setFilteredResList] = useState([]);
 
 	useEffect(() => {
 		fetchData();
@@ -14,17 +15,32 @@ const Body = () => {
 
 	const fetchData = async () => {
 		const resData = await fetch(SWIGGY_API_URL);
-		console.log(resData);
 		const jsonData = await resData.json();
-		console.log(jsonData);
 		setResList(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+		setFilteredResList(
+			jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+		);
 	};
 
 	return (
 		<div className="body">
-			<Search />
-			<TopRatedBtn resList={resList} setResList={setResList} />
-			{resList.length === 0 ? <Shimmer /> : <RestaurantContainer resList={resList} />}
+			<div className="filters">
+				<Search
+					resList={resList}
+					filteredResList={filteredResList}
+					setFilteredResList={setFilteredResList}
+				/>
+				<TopRatedBtn
+					resList={resList}
+					filteredResList={filteredResList}
+					setFilteredResList={setFilteredResList}
+				/>
+			</div>
+			{resList.length === 0 ? (
+				<Shimmer />
+			) : (
+				<RestaurantContainer filteredResList={filteredResList} />
+			)}
 		</div>
 	);
 };

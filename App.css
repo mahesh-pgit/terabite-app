@@ -1,7 +1,6 @@
 .header {
 	display: flex;
 	justify-content: space-between;
-	border: 1px solid black;
 	height: 100px;
 }
 
@@ -13,7 +12,7 @@
 .nav-items > ul {
 	font-size: 20px;
 	display: flex;
-	padding: 20px 250px;
+	padding: 20px 2px;
 }
 
 .nav-items > ul > li {
@@ -22,12 +21,77 @@
 	list-style: none;
 }
 
+.login-btn {
+	padding: 10px 20px;
+	margin: 32px 65px;
+	font-size: 15px;
+	border-radius: 0.1cm;
+	cursor: pointer;
+	border: 0px;
+	background-color: #f0f0f0;
+}
+
+.login-btn:hover {
+	border: 1px solid black;
+}
+
+.filters {
+	display: flex;
+	justify-content: space-between;
+	padding: 25px 0px;
+}
+
 .search {
-	padding: 20px;
+	margin-left: 550px;
+}
+
+.search-input {
+	padding: 15px;
+	border: 0px;
+	font-size: 20px;
+}
+
+.search-input::placeholder {
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+.search-input:focus {
+	outline: none;
+}
+
+.clear-search {
+	padding: 15px;
+	cursor: pointer;
+	border: 0px;
+	background-color: #fff;
+	font-size: 20px;
+}
+
+.search-btn {
+	padding: 15px;
+	font-size: 15px;
+	cursor: pointer;
+	border: 0px;
+	background-color: #f0f0f0;
+}
+
+.search-btn:hover {
+	border: 1px solid black;
 }
 
 .filter-btn {
-	margin: 5px;
+	padding: 15px;
+	margin-right: 200px;
+	font-size: 15px;
+	border-radius: 0.1cm;
+	cursor: pointer;
+	border: 0px;
+	background-color: #f0f0f0;
+}
+
+.filter-btn:hover {
+	border: 1px solid black;
 }
 
 .shimmer-container {
@@ -38,7 +102,7 @@
 .shimmer-card {
 	height: 320px;
 	width: 200px;
-	margin: 0 20px 20px;
+	margin: 0 25px 25px;
 	background-color: #f0f0f0;
 	border-radius: 0.5cm;
 }
@@ -51,7 +115,7 @@
 .res-card {
 	height: 320px;
 	width: 200px;
-	margin: 0 20px 20px;
+	margin: 0 25px 25px;
 	background-color: #f0f0f0;
 	border-radius: 0.5cm;
 }

@@ -1,9 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
 
-const RestaurantContainer = ({ resList }) => {
+const RestaurantContainer = ({ filteredResList }) => {
 	return (
 		<div className="res-container">
-			{resList.map((resItem) => (
+			{filteredResList.map((resItem) => (
 				<RestaurantCard key={resItem.info.id} resObj={resItem} />
 			))}
 		</div>
