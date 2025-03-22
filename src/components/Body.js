@@ -25,11 +25,7 @@ const Body = () => {
 	return (
 		<div className="body">
 			<div className="filters">
-				<Search
-					resList={resList}
-					filteredResList={filteredResList}
-					setFilteredResList={setFilteredResList}
-				/>
+				<Search resList={resList} setFilteredResList={setFilteredResList} />
 				<TopRatedBtn
 					resList={resList}
 					filteredResList={filteredResList}
