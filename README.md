@@ -4,8 +4,10 @@
     -   Header
         -   Logo
         -   Nav Items
+        -   Login Button
     -   Body
         -   Search
+        -   Top Rated Filter Button
         -   RestaurantContainer
             -   RestaurantCard
                 -   Image

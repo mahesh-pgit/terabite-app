@@ -1,7 +1,7 @@
 {
   "name": "terabite-app",
   "version": "1.0.0",
-  "description": "Tera Bite App developed by Mahesh Narava using React and Parcel",
+  "description": "Tera Bite Application developed by Mahesh Narava using React and Parcel",
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^6.30.0"
   },
   "browserslist": [
     "last 3 versions"

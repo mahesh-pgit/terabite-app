@@ -21,7 +21,7 @@ const Search = ({ resList, setFilteredResList }) => {
 				onKeyUp={(e) => (e.key === "Enter" ? handleSearch() : null)}
 				className="search-input"
 				placeholder="Search for restaurants"
-				size={15}
+				size={20}
 			/>
 			{searchText !== "" ? (
 				<button
