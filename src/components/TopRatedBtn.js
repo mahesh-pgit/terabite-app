@@ -1,11 +1,9 @@
-import { useState } from "react";
-
-const TopRatedBtn = ({ resList, filteredResList, setFilteredResList }) => {
-	const [clicked, setClicked] = useState(false);
+const TopRatedBtn = ({ resList, filteredResList, setFilteredResList, clicked, setClicked }) => {
 	return (
 		<div className="filter">
 			<button
 				className="filter-btn"
+				style={{ backgroundColor: clicked ? "#f0f0f0" : null }}
 				onClick={() => {
 					clicked === false
 						? (setClicked(true),

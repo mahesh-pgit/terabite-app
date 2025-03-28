@@ -4,6 +4,10 @@
     -   Header
         -   Logo
         -   Nav Items
+            -   Home
+            -   About Us
+            -   Contact Us
+            -   Cart
         -   Login Button
     -   Body
         -   Search

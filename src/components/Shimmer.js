@@ -1,9 +1,21 @@
 const Shimmer = () => {
 	const cards = [];
-	for (let i = 1; i <= 18; i++) {
-		cards.push(<div key={i} className="shimmer-card"></div>);
+	for (let i = 1; i <= 25; i++) {
+		cards.push(
+			<div key={i} className="shimmer-card">
+				<div className="shimmer-img-container"></div>
+			</div>
+		);
 	}
 	return <div className="shimmer-container">{cards}</div>;
 };
 
-export default Shimmer;
+const ShimmerMenu = () => {
+	return (
+		<div className="shimmer-info-container">
+			<div className="shimmer-logo-container"></div>
+		</div>
+	);
+};
+
+export { Shimmer, ShimmerMenu };

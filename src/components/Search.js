@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-const Search = ({ resList, setFilteredResList }) => {
-	const [searchText, setSearchText] = useState("");
-
+const Search = ({ resList, setFilteredResList, searchText, setSearchText, setClicked }) => {
 	const handleSearch = () => {
 		setFilteredResList(
 			resList.filter((resItem) =>
@@ -29,6 +25,7 @@ const Search = ({ resList, setFilteredResList }) => {
 					onClick={() => {
 						setSearchText("");
 						setFilteredResList(resList);
+						setClicked(false);
 					}}>
 					✖
 				</button>
