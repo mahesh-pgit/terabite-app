@@ -1,57 +1,52 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Search from "./Search";
 import TopRatedBtn from "./TopRatedBtn";
 import { Shimmer } from "./Shimmer";
+import useRestaurantsData from "../utils/useRestaurantsData";
 import RestaurantContainer from "./RestaurantContainer";
-import { SWIGGY_API_URL } from "../utils/constants";
 
 const Body = () => {
-	const [resList, setResList] = useState([]);
-	const [filteredResList, setFilteredResList] = useState([]);
 	const [searchText, setSearchText] = useState("");
+
 	const [clicked, setClicked] = useState(false);
 
-	useEffect(() => {
-		fetchData();
-	}, []);
-
-	const fetchData = async () => {
-		const resData = await fetch(SWIGGY_API_URL);
-		const jsonData = await resData.json();
-		setResList(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-		setFilteredResList(
-			jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-		);
-	};
+	const [backupResList, resList, setResList, filteredResList, setfilteredResList] =
+		useRestaurantsData();
 
 	return (
 		<div className="body">
-			<div className="filters">
+			<div className="filters flex justify-between my-[15px]">
 				<Search
+					backupResList={backupResList}
 					resList={resList}
-					setFilteredResList={setFilteredResList}
+					setResList={setResList}
+					setfilteredResList={setfilteredResList}
 					searchText={searchText}
 					setSearchText={setSearchText}
 					setClicked={setClicked}
 				/>
 				<TopRatedBtn
 					resList={resList}
+					setResList={setResList}
 					filteredResList={filteredResList}
-					setFilteredResList={setFilteredResList}
 					clicked={clicked}
 					setClicked={setClicked}
 				/>
 			</div>
 
-			{resList.length === 0 ? (
+			{backupResList.length === 0 ? (
 				<Shimmer />
-			) : filteredResList.length === 0 ? (
-				<div className="error-message">
-					<h1>Sorry, No results found for "{searchText}"</h1>
-					<h2>Please check the spelling or try searching for something else...</h2>
+			) : resList.length === 0 ? (
+				<div className="error-msg flex flex-col items-center ">
+					<h1 className="text-[40px] font-[600] m-[10px]">
+						Sorry, No results found for "{searchText}"
+					</h1>
+					<h2 className="text-[30px] font-[500] m-[10px]">
+						Please check the spelling or try searching for something else...
+					</h2>
 				</div>
 			) : (
-				<RestaurantContainer filteredResList={filteredResList} />
+				<RestaurantContainer resList={resList} />
 			)}
 		</div>
 	);
