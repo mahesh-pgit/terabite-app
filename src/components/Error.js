@@ -14,4 +14,26 @@ const Error = () => {
 	);
 };
 
-export default Error;
+const SearchError = ({ searchText }) => {
+	return (
+		<div className="error-msg flex flex-col items-center ">
+			<h1 className="text-[40px] font-[600] m-[10px]">
+				Sorry, No results found for "{searchText}"
+			</h1>
+			<h2 className="text-[30px] font-[500] m-[10px]">
+				Please check the spelling or try searching for something else...
+			</h2>
+		</div>
+	);
+};
+
+const OnlineError = () => {
+	return (
+		<div className="flex flex-col items-center m-[100px]">
+			<h1 className="text-[50px]">Looks like you're offline</h1>
+			<h2 className="text-[40px]">Please check your internet connection...</h2>
+		</div>
+	);
+};
+
+export { Error, SearchError, OnlineError };

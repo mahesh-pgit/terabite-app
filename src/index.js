@@ -6,8 +6,8 @@ import Body from "./components/Body";
 import Grocery from "./components/Grocery";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import RestaurantMenu from "./components/RestaurantMenu";
-import Error from "./components/Error";
+import RestaurantPage from "./components/RestaurantPage";
+import { Error } from "./components/Error";
 
 const appRoutes = createBrowserRouter([
 	{
@@ -19,7 +19,7 @@ const appRoutes = createBrowserRouter([
 			{ path: "/grocery", element: <Grocery /> },
 			{ path: "/about", element: <About /> },
 			{ path: "/contact", element: <Contact /> },
-			{ path: "/restaurants/:resId", element: <RestaurantMenu /> },
+			{ path: "/restaurants/:resId", element: <RestaurantPage /> },
 		],
 	},
 ]);

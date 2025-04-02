@@ -1,12 +1,12 @@
-import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/constants";
+import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/assets";
 
 const MenuItemCard = ({ menuItem }) => {
 	const { name, description, imageId, price, defaultPrice, ratings } = menuItem?.card?.info;
 	return (
 		<div className="menu-item-card">
-			<div className="h-[160px] flex justify-between">
-				<div className="menu-item-info w-[600px] h-[160px]">
-					<h3 className="text-[18px] text-[#02060cbf] font-[700] tracking-[-0.4px] mt-[20px] mb-[8px]">
+			<div className=" flex justify-between h-[150px]">
+				<div className="menu-item-info w-[550px] ml-[20px]">
+					<h3 className="text-[18px] text-[#02060cbf] font-[700] tracking-[-0.4px] mt-[10px] mb-[8px]">
 						{name}
 					</h3>
 					<h4 className="text-[16px] font-[600] m-[0]">
@@ -22,13 +22,13 @@ const MenuItemCard = ({ menuItem }) => {
 					</h5>
 					<p className="text-[16px] text-[#02060c99] font-[500] m-[0]">
 						{description
-							? description.length < 155
+							? description.length < 140
 								? description
-								: description.slice(0, 155) + "..."
+								: description.slice(0, 140) + "..."
 							: null}
 					</p>
 				</div>
-				<div className="flex flex-col items-center relative">
+				<div className="flex flex-col items-center relative mr-[20px]">
 					{imageId ? (
 						<img
 							className="h-[144px] w-[156px] rounded-[0.3cm] object-cover overflow-hidden"
@@ -41,7 +41,7 @@ const MenuItemCard = ({ menuItem }) => {
 					</button>
 				</div>
 			</div>
-			<hr className="border-1 border-[#e9e9e9] mt-[30px] mb-[20px]" />
+			<hr className="border-1 border-[#e9e9e9] w-[780px] mt-[30px] mb-[20px] mx-[auto]" />
 		</div>
 	);
 };

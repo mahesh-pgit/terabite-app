@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/constants";
+import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/assets";
 
 const RestaurantCard = ({ resObj }) => {
 	const { id, cloudinaryImageId, name, cuisines, avgRating, sla, areaName } = resObj?.info;

@@ -4,6 +4,8 @@ import TopRatedBtn from "./TopRatedBtn";
 import { Shimmer } from "./Shimmer";
 import useRestaurantsData from "../utils/useRestaurantsData";
 import RestaurantContainer from "./RestaurantContainer";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import { OnlineError, SearchError } from "./Error";
 
 const Body = () => {
 	const [searchText, setSearchText] = useState("");
@@ -13,9 +15,13 @@ const Body = () => {
 	const [backupResList, resList, setResList, filteredResList, setfilteredResList] =
 		useRestaurantsData();
 
+	const onlineStatus = useOnlineStatus();
+
+	if (onlineStatus === false) return <OnlineError />;
+
 	return (
 		<div className="body">
-			<div className="filters flex justify-between my-[15px]">
+			<div className="filters flex justify-between mt-[35px] mb-[15px]">
 				<Search
 					backupResList={backupResList}
 					resList={resList}
@@ -37,14 +43,7 @@ const Body = () => {
 			{backupResList.length === 0 ? (
 				<Shimmer />
 			) : resList.length === 0 ? (
-				<div className="error-msg flex flex-col items-center ">
-					<h1 className="text-[40px] font-[600] m-[10px]">
-						Sorry, No results found for "{searchText}"
-					</h1>
-					<h2 className="text-[30px] font-[500] m-[10px]">
-						Please check the spelling or try searching for something else...
-					</h2>
-				</div>
+				<SearchError searchText={searchText} />
 			) : (
 				<RestaurantContainer resList={resList} />
 			)}

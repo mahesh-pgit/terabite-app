@@ -14,7 +14,7 @@ const Shimmer = () => {
 
 const ShimmerMenu = () => {
 	return (
-		<div className="w-[800px] h-[240px] mx-auto border-1 border-[#e9e9e9] rounded-[0.3cm] shadow-[0px_5px_10px_#e9e9e9]">
+		<div className="w-[800px] h-[240px] mx-auto mt-[20px] border-1 border-[#e9e9e9] rounded-[0.3cm] shadow-[0px_5px_10px_#e9e9e9]">
 			<div className="h-[200px] w-[200px] m-[20px] rounded-[0.3cm] bg-[#f2f2f2]"></div>
 		</div>
 	);

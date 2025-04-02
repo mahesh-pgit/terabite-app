@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { APP_LOGO_URL } from "../utils/constants";
+import { APP_LOGO_URL } from "../utils/assets";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
 	const li_styleClasses = "mx-[30px] list-none hover:cursor-pointer hover:text-[#bfbfbf]";
 
 	return (
-		<div className="header flex justify-between h-[100px]">
+		<div className="header flex justify-between h-[100px] shadow-[0_4px_6px_-1px_#0000001a]">
 			<div className="logo w-[100px] mx-[50px]">
 				<Link to="/">
 					<img
