@@ -1,12 +1,16 @@
+import { useSelector } from "react-redux";
+import { UP_ARROW_SVG, DOWN_ARROR_SVG } from "../utils/assets";
 import MenuItemCard from "./MenuItemCard";
-import { UP_ARROW_SVG } from "../utils/assets";
-import { DOWN_ARROR_SVG } from "../utils/assets";
 
 const CategoryItem = ({ categoryData, index, activeIndex, setActiveIndex }) => {
+	const cartItems = useSelector((store) => store.cart.cartItems);
+
 	const { title, itemCards } = categoryData;
+
 	const handleClick = () => {
 		activeIndex === index ? setActiveIndex(null) : setActiveIndex(index);
 	};
+
 	return (
 		<div className="category-item shadow-[0_4px_6px_-1px_#0000001a] mb-[40px]">
 			<div
@@ -19,9 +23,19 @@ const CategoryItem = ({ categoryData, index, activeIndex, setActiveIndex }) => {
 			</div>
 			{activeIndex === index && (
 				<div className="menu-items">
-					{itemCards.map((menuItem) => (
-						<MenuItemCard key={menuItem.card.info.id} menuItem={menuItem} />
-					))}
+					{itemCards.map((menuItem) => {
+						let updatedMenuItem = { ...menuItem.card.info, itemsInCart: 0 };
+						for (let cartItem of cartItems) {
+							if (cartItem.id === menuItem.card.info.id) {
+								updatedMenuItem = {
+									...menuItem.card.info,
+									itemsInCart: cartItem.itemsInCart,
+								};
+								break;
+							}
+						}
+						return <MenuItemCard key={updatedMenuItem.id} menuItem={updatedMenuItem} />;
+					})}
 				</div>
 			)}
 		</div>

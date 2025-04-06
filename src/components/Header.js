@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { APP_LOGO_URL } from "../utils/assets";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 	const [loginBtn, setLoginBtn] = useState("Login");
+
+	const cartItems = useSelector((store) => store.cart.cartItems);
+
+	let cartCount = 0;
+	cartItems.forEach((element) => {
+		cartCount = cartCount + element.itemsInCart;
+	});
 
 	const li_styleClasses = "mx-[30px] list-none hover:cursor-pointer hover:text-[#bfbfbf]";
 
@@ -33,7 +41,7 @@ const Header = () => {
 						<Link to="/contact">Contact Us</Link>
 					</li>
 					<li className={li_styleClasses}>
-						<Link to="/cart">Cart</Link>
+						<Link to="/cart">Cart ({cartCount})</Link>
 					</li>
 				</ul>
 			</div>

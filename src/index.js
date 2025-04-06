@@ -3,10 +3,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Body from "./components/Body";
+import RestaurantPage from "./components/RestaurantPage";
 import Grocery from "./components/Grocery";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import RestaurantPage from "./components/RestaurantPage";
+import Cart from "./components/Cart";
 import { Error } from "./components/Error";
 
 const appRoutes = createBrowserRouter([
@@ -16,10 +17,11 @@ const appRoutes = createBrowserRouter([
 		errorElement: <Error />,
 		children: [
 			{ path: "/", element: <Body /> },
+			{ path: "/restaurants/:resId", element: <RestaurantPage /> },
 			{ path: "/grocery", element: <Grocery /> },
 			{ path: "/about", element: <About /> },
 			{ path: "/contact", element: <Contact /> },
-			{ path: "/restaurants/:resId", element: <RestaurantPage /> },
+			{ path: "/cart", element: <Cart /> },
 		],
 	},
 ]);

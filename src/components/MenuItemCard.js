@@ -1,7 +1,41 @@
+import { useState } from "react";
 import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/assets";
+import { useDispatch } from "react-redux";
+import { addItem, removeItem } from "../utils/cartSlice";
 
 const MenuItemCard = ({ menuItem }) => {
-	const { name, description, imageId, price, defaultPrice, ratings } = menuItem?.card?.info;
+	const [menuItemCard, setMenuItemCard] = useState(menuItem);
+
+	const dispatch = useDispatch();
+
+	const handleAddItem = () => {
+		setMenuItemCard({
+			...menuItemCard,
+			itemsInCart: menuItemCard.itemsInCart + 1,
+		});
+		dispatch(
+			addItem({
+				...menuItemCard,
+				itemsInCart: menuItemCard.itemsInCart + 1,
+			})
+		);
+	};
+
+	const handleRemoveItem = () => {
+		setMenuItemCard({
+			...menuItemCard,
+			itemsInCart: menuItemCard.itemsInCart - 1,
+		});
+		dispatch(
+			removeItem({
+				...menuItemCard,
+				itemsInCart: menuItemCard.itemsInCart - 1,
+			})
+		);
+	};
+
+	const { name, description, imageId, price, defaultPrice, ratings } = menuItem;
+
 	return (
 		<div className="menu-item-card">
 			<div className=" flex justify-between h-[150px]">
@@ -29,16 +63,38 @@ const MenuItemCard = ({ menuItem }) => {
 					</p>
 				</div>
 				<div className="flex flex-col items-center relative mr-[20px]">
-					{imageId ? (
+					{imageId && (
 						<img
 							className="h-[144px] w-[156px] rounded-[0.3cm] object-cover overflow-hidden"
 							src={SWIGGY_MEDIA_ASSETS_URL + imageId}
 							alt={name}
 						/>
-					) : null}
-					<button className="absolute right-[18px] bottom-[-3px] w-[120px] text-[20px] text-[#1ba672] font-[700] tracking-[-0.5px] px-0 py-[7px] bg-[#fff] border-1 border-[#e9e9e9] rounded-[0.2cm] shadow-[0px_5px_10px_#e9e9e9] hover:cursor-pointer hover:bg-[#d9dadb] hover:shadow-none hover:border-[none]">
-						ADD
-					</button>
+					)}
+					{menuItemCard.itemsInCart <= 0 ? (
+						<button
+							className="absolute right-[18px] bottom-[-3px] w-[120px] text-[20px] text-[#1ba672] font-[700] tracking-[-0.5px] px-0 py-[7px] bg-[#fff] border-1 border-[#e9e9e9] rounded-[0.2cm] shadow-[0px_5px_10px_#e9e9e9] hover:cursor-pointer hover:bg-[#d9dadb] hover:shadow-none hover:border-[none]"
+							onClick={handleAddItem}>
+							ADD
+						</button>
+					) : (
+						<div className="absolute right-[18px] bottom-[-3px] w-[120px] flex justify-between text-[20px] text-[#1ba672] font-[700] tracking-[-0.5px] px-0 bg-[#fff] border-1 border-[#e9e9e9] rounded-[0.2cm] shadow-[0px_5px_10px_#e9e9e9]">
+							<div
+								className="px-[15px] py-[7.5px] hover:cursor-pointer hover:bg-[#d9dadb]"
+								onClick={handleRemoveItem}>
+								-
+							</div>
+							<div className="py-[7.5px]">
+								<h1>{menuItemCard.itemsInCart}</h1>
+							</div>
+							<div
+								className="px-[15px] py-[7.5px] hover:cursor-pointer hover:bg-[#d9dadb]"
+								onClick={() => {
+									handleAddItem(menuItemCard);
+								}}>
+								+
+							</div>
+						</div>
+					)}
 				</div>
 			</div>
 			<hr className="border-1 border-[#e9e9e9] w-[780px] mt-[30px] mb-[20px] mx-[auto]" />
