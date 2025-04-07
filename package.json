@@ -1,7 +1,7 @@
 {
   "name": "terabite-app",
   "version": "1.0.0",
-  "description": "Tera Bite Application developed by Mahesh Narava using React and Parcel",
+  "description": "Tera Bite Application developed by Mahesh Narava using React, Tailwind, Redux and Parcel",
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html",

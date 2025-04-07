@@ -24,6 +24,10 @@ const DOWN_ARROR_SVG = (
 	</svg>
 );
 
+const CART_ICON_URL = "https://img.icons8.com/ios/100/shopping-bag--v1.png";
+
+const CHECKOUT_ICON_URL = "https://img.icons8.com/ios/100/circled-right-2.png";
+
 export {
 	APP_LOGO_URL,
 	SWIGGY_API_URL,
@@ -32,4 +36,6 @@ export {
 	MENU_ICON_URL,
 	UP_ARROW_SVG,
 	DOWN_ARROR_SVG,
+	CART_ICON_URL,
+	CHECKOUT_ICON_URL,
 };

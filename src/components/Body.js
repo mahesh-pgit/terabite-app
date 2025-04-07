@@ -39,7 +39,6 @@ const Body = () => {
 					setClicked={setClicked}
 				/>
 			</div>
-
 			{backupResList.length === 0 ? (
 				<Shimmer />
 			) : resList.length === 0 ? (

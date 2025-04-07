@@ -40,7 +40,7 @@ const MenuItemCard = ({ menuItem }) => {
 		<div className="menu-item-card">
 			<div className=" flex justify-between h-[150px]">
 				<div className="menu-item-info w-[550px] ml-[20px]">
-					<h3 className="text-[18px] text-[#02060cbf] font-[700] tracking-[-0.4px] mt-[10px] mb-[8px]">
+					<h3 className="text-[18px] text-[#02060CBF] font-[700] tracking-[-0.4px] mt-[10px] mb-[8px]">
 						{name}
 					</h3>
 					<h4 className="text-[16px] font-[600] m-[0]">
@@ -54,7 +54,7 @@ const MenuItemCard = ({ menuItem }) => {
 							? `(${ratings.aggregatedRating.ratingCountV2})`
 							: null}
 					</h5>
-					<p className="text-[16px] text-[#02060c99] font-[500] m-[0]">
+					<p className="text-[16px] text-[#02060C99] font-[500] m-[0]">
 						{description
 							? description.length < 140
 								? description
@@ -67,19 +67,21 @@ const MenuItemCard = ({ menuItem }) => {
 						<img
 							className="h-[144px] w-[156px] rounded-[0.3cm] object-cover overflow-hidden"
 							src={SWIGGY_MEDIA_ASSETS_URL + imageId}
+							onContextMenu={(e) => e.preventDefault()}
+							onDragStart={(e) => e.preventDefault()}
 							alt={name}
 						/>
 					)}
 					{menuItemCard.itemsInCart <= 0 ? (
 						<button
-							className="absolute right-[18px] bottom-[-3px] w-[120px] text-[20px] text-[#1ba672] font-[700] tracking-[-0.5px] px-0 py-[7px] bg-[#fff] border-1 border-[#e9e9e9] rounded-[0.2cm] shadow-[0px_5px_10px_#e9e9e9] hover:cursor-pointer hover:bg-[#d9dadb] hover:shadow-none hover:border-[none]"
+							className="absolute right-[18px] bottom-[-3px] w-[120px] text-[20px] text-[#1BA672] font-[700] tracking-[-0.5px] px-0 py-[7px] bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.2cm] shadow-[0px_5px_10px_#E9E9E9] hover:cursor-pointer hover:bg-[#D9DADB] hover:shadow-none hover:border-[none]"
 							onClick={handleAddItem}>
 							ADD
 						</button>
 					) : (
-						<div className="absolute right-[18px] bottom-[-3px] w-[120px] flex justify-between text-[20px] text-[#1ba672] font-[700] tracking-[-0.5px] px-0 bg-[#fff] border-1 border-[#e9e9e9] rounded-[0.2cm] shadow-[0px_5px_10px_#e9e9e9]">
+						<div className="absolute right-[18px] bottom-[-3px] w-[120px] flex justify-between text-[20px] text-[#1BA672] font-[700] tracking-[-0.5px] px-0 bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.2cm] shadow-[0px_5px_10px_#E9E9E9]">
 							<div
-								className="px-[15px] py-[7.5px] hover:cursor-pointer hover:bg-[#d9dadb]"
+								className="px-[15px] py-[7.5px] hover:cursor-pointer hover:bg-[#D9DADB]"
 								onClick={handleRemoveItem}>
 								-
 							</div>
@@ -87,7 +89,7 @@ const MenuItemCard = ({ menuItem }) => {
 								<h1>{menuItemCard.itemsInCart}</h1>
 							</div>
 							<div
-								className="px-[15px] py-[7.5px] hover:cursor-pointer hover:bg-[#d9dadb]"
+								className="px-[15px] py-[7.5px] hover:cursor-pointer hover:bg-[#D9DADB]"
 								onClick={() => {
 									handleAddItem(menuItemCard);
 								}}>
@@ -97,7 +99,7 @@ const MenuItemCard = ({ menuItem }) => {
 					)}
 				</div>
 			</div>
-			<hr className="border-1 border-[#e9e9e9] w-[780px] mt-[30px] mb-[20px] mx-[auto]" />
+			<hr className="border-1 border-[#E9E9E9] w-[780px] mt-[30px] mb-[20px] mx-[auto]" />
 		</div>
 	);
 };

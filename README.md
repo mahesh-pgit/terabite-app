@@ -17,9 +17,9 @@
                 -   Image
                 -   Restaurant Name
                 -   Cuisine
+                -   Area Name
                 -   Star Rating
                 -   ETA
-                -   Area Name
     -   Footer
         -   Copyright
         -   Links

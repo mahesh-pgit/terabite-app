@@ -26,19 +26,21 @@ const RestaurantPage = () => {
 
 	return (
 		<div className="res-page w-[800px] mx-[auto] mt-[20px]">
-			<div className="res-info-card flex w-[800px] border-1 border-[#e9e9e9] rounded-[0.3cm] shadow-[0px_5px_10px_#e9e9e9]">
+			<div className="res-info-card flex w-[800px] border-1 border-[#E9E9E9] rounded-[0.3cm] shadow-[0px_5px_10px_#E9E9E9]">
 				<div className="res-img m-[20px]">
 					<img
 						className="h-[200px] w-[200px] rounded-[0.3cm] object-cover overflow-hidden"
 						src={SWIGGY_MEDIA_ASSETS_URL + cloudinaryImageId}
+						onContextMenu={(e) => e.preventDefault()}
+						onDragStart={(e) => e.preventDefault()}
 						alt="restaurant-logo"
 					/>
 				</div>
 				<div className="res-info flex flex-col my-[25px] mx-[10px] ">
-					<h1 className="text-[30px] text-[#02060ceb] font-[600] tracking-[-0.5px] mb-[10px]">
+					<h1 className="text-[30px] text-[#02060CEB] font-[600] tracking-[-0.5px] mb-[10px]">
 						{name}
 					</h1>
-					<h3 className="text-[16px] text-[#02060ceb] font-[550] m-[0]">
+					<h3 className="text-[16px] text-[#02060CEB] font-[550] m-[0]">
 						{avgRating ? `⭐${avgRating}` : null}
 						{totalRatings
 							? ` (
@@ -47,16 +49,16 @@ const RestaurantPage = () => {
 							: null}
 						{costForTwoMessage ? ` • ${costForTwoMessage}` : null}
 					</h3>
-					<h4 className="text-[14px] text-[#02060ceb] font-[500] mt-[10px]">
+					<h4 className="text-[14px] text-[#02060CEB] font-[500] mt-[10px]">
 						{cuisines ? cuisines.join(", ") : null}
 					</h4>
-					<h4 className="text-[14px] text-[#02060ceb] font-[500] mt-[10px]">
+					<h4 className="text-[14px] text-[#02060CEB] font-[500] mt-[10px]">
 						{areaName ? "Outlet: " : null}
-						<span className="text-[#02060c99]">
+						<span className="text-[#02060C99]">
 							{areaName ? (city ? `${areaName}, ${city}` : `${areaName}`) : null}
 						</span>
 					</h4>
-					<h4 className="text-[14px] text-[#02060ceb] font-[500] mt-[10px]">
+					<h4 className="text-[14px] text-[#02060CEB] font-[500] mt-[10px]">
 						{sla.slaString}
 					</h4>
 				</div>
@@ -66,6 +68,8 @@ const RestaurantPage = () => {
 					<img
 						className="h-[35px] w-[35px] p-[4px]"
 						src={MENU_ICON_URL}
+						onContextMenu={(e) => e.preventDefault()}
+						onDragStart={(e) => e.preventDefault()}
 						alt="menu-icon"
 					/>
 					<h1 className="text-[25px] font-[500] m-[0]">MENU</h1>

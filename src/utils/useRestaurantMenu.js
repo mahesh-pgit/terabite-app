@@ -13,6 +13,7 @@ const useRestaurantMenu = (resId) => {
 		const jsonData = await resData.json();
 		setResInfo(jsonData);
 	};
+
 	return resInfo;
 };
 

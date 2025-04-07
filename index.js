@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import App from "./src/App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Body from "./components/Body";
-import RestaurantPage from "./components/RestaurantPage";
-import Grocery from "./components/Grocery";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Cart from "./components/Cart";
-import { Error } from "./components/Error";
+import Body from "./src/components/Body";
+import RestaurantPage from "./src/components/RestaurantPage";
+import Grocery from "./src/components/Grocery";
+import About from "./src/components/About";
+import Contact from "./src/components/Contact";
+import Cart from "./src/components/Cart";
+import { Error } from "./src/components/Error";
 
 const appRoutes = createBrowserRouter([
 	{

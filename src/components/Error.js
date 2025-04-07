@@ -2,6 +2,7 @@ import { useRouteError } from "react-router-dom";
 
 const Error = () => {
 	const err = useRouteError();
+
 	return (
 		<div className="error-page flex flex-col items-center my-[150px]">
 			<h1 className="text-[50px]">Oops!!!</h1>
@@ -16,7 +17,7 @@ const Error = () => {
 
 const SearchError = ({ searchText }) => {
 	return (
-		<div className="error-msg flex flex-col items-center ">
+		<div className="search-error flex flex-col items-center ">
 			<h1 className="text-[40px] font-[600] m-[10px]">
 				Sorry, No results found for "{searchText}"
 			</h1>
@@ -29,7 +30,7 @@ const SearchError = ({ searchText }) => {
 
 const OnlineError = () => {
 	return (
-		<div className="flex flex-col items-center m-[100px]">
+		<div className="internet-error flex flex-col items-center m-[100px]">
 			<h1 className="text-[50px]">Looks like you're offline</h1>
 			<h2 className="text-[40px]">Please check your internet connection...</h2>
 		</div>

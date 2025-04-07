@@ -12,7 +12,7 @@ const CategoryItem = ({ categoryData, index, activeIndex, setActiveIndex }) => {
 	};
 
 	return (
-		<div className="category-item shadow-[0_4px_6px_-1px_#0000001a] mb-[40px]">
+		<div className="category-item shadow-[0_4px_6px_-1px_#0000001A] mb-[40px]">
 			<div
 				className="text-[20px] font-[700] p-[15px] flex justify-between hover:cursor-pointer"
 				onClick={handleClick}>

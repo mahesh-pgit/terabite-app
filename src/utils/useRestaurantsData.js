@@ -3,7 +3,9 @@ import { SWIGGY_API_URL } from "./assets";
 
 const useRestaurantsData = () => {
 	const [resList, setResList] = useState([]);
+
 	const [backupResList, setBackupResList] = useState([]);
+
 	const [filteredResList, setfilteredResList] = useState([]);
 
 	useEffect(() => {
@@ -18,6 +20,7 @@ const useRestaurantsData = () => {
 		setBackupResList(data);
 		setfilteredResList(data);
 	};
+
 	return [backupResList, resList, setResList, filteredResList, setfilteredResList];
 };
 
