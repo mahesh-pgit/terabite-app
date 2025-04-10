@@ -4,7 +4,6 @@ import App from "./src/App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Body from "./src/components/Body";
 import RestaurantPage from "./src/components/RestaurantPage";
-import Grocery from "./src/components/Grocery";
 import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import Cart from "./src/components/Cart";
@@ -18,7 +17,6 @@ const appRoutes = createBrowserRouter([
 		children: [
 			{ path: "/", element: <Body /> },
 			{ path: "/restaurants/:resId", element: <RestaurantPage /> },
-			{ path: "/grocery", element: <Grocery /> },
 			{ path: "/about", element: <About /> },
 			{ path: "/contact", element: <Contact /> },
 			{ path: "/cart", element: <Cart /> },

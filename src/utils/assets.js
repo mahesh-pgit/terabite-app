@@ -28,6 +28,22 @@ const CART_ICON_URL = "https://img.icons8.com/ios/100/shopping-bag--v1.png";
 
 const CHECKOUT_ICON_URL = "https://img.icons8.com/ios/100/circled-right-2.png";
 
+const GITHUB_LOGO_URL = "https://img.icons8.com/plasticine/100/github.png";
+
+const LINKEDIN_LOGO_URL = "https://img.icons8.com/stickers/100/linkedin.png";
+
+const GMAIL_LOGO_URL = "https://img.icons8.com/doodle/50/gmail-new.png";
+
+const WHATSAPP_LOGO_URL = "https://img.icons8.com/scribby/50/whatsapp.png";
+
+const INSTAGRAM_LOGO_URL = "https://img.icons8.com/pulsar-color/48/instagram-new.png";
+
+const X_LOGO_URL = "https://img.icons8.com/ios-filled/50/twitterx--v1.png";
+
+const REDDIT_LOGO_URL = "https://img.icons8.com/doodle/50/reddit--v4.png";
+
+const STACK_OVERFLOW_LOGO_URL = "https://img.icons8.com/color-glass/48/stackoverflow.png";
+
 export {
 	APP_LOGO_URL,
 	SWIGGY_API_URL,
@@ -38,4 +54,12 @@ export {
 	DOWN_ARROR_SVG,
 	CART_ICON_URL,
 	CHECKOUT_ICON_URL,
+	GITHUB_LOGO_URL,
+	LINKEDIN_LOGO_URL,
+	GMAIL_LOGO_URL,
+	WHATSAPP_LOGO_URL,
+	INSTAGRAM_LOGO_URL,
+	X_LOGO_URL,
+	REDDIT_LOGO_URL,
+	STACK_OVERFLOW_LOGO_URL,
 };
