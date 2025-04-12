@@ -1,15 +1,24 @@
 import { useState, useEffect } from "react";
-import { SWIGGY_API_MENU_URL } from "../utils/assets";
+import getLocation from "../utils/getLocation";
 
 const useRestaurantMenu = (resId) => {
 	const [resInfo, setResInfo] = useState(null);
 
 	useEffect(() => {
-		fetchMenu();
+		getLocation()
+			.then((location) => {
+				const { lat, lng } = location;
+				fetchMenu(lat, lng, resId);
+			})
+			.catch((error) => {
+				console.error("Error fetching location:", error);
+			});
 	}, []);
 
-	const fetchMenu = async () => {
-		const resData = await fetch(SWIGGY_API_MENU_URL + resId);
+	const fetchMenu = async (lat, lng, resId) => {
+		const resData = await fetch(
+			`https://terabite-server.onrender.com/api/menu?lat=${lat}&lng=${lng}&restaurantId=${resId}`
+		);
 		const jsonData = await resData.json();
 		setResInfo(jsonData);
 	};

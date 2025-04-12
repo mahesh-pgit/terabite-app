@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { SWIGGY_API_URL } from "./assets";
+import getLocation from "./getLocation";
 
 const useRestaurantsData = () => {
 	const [resList, setResList] = useState([]);
@@ -9,11 +9,20 @@ const useRestaurantsData = () => {
 	const [filteredResList, setfilteredResList] = useState([]);
 
 	useEffect(() => {
-		fetchData();
+		getLocation()
+			.then((location) => {
+				const { lat, lng } = location;
+				fetchData(lat, lng);
+			})
+			.catch((error) => {
+				console.error("Error fetching location:", error);
+			});
 	}, []);
 
-	const fetchData = async () => {
-		const resData = await fetch(SWIGGY_API_URL);
+	const fetchData = async (lat, lng) => {
+		const resData = await fetch(
+			`https://terabite-server.onrender.com/api/restaurants?lat=${lat}&lng=${lng}`
+		);
 		const jsonData = await resData.json();
 		const data = jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 		setResList(data);
