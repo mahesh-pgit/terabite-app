@@ -5,7 +5,7 @@ const Search = ({
 	setfilteredResList,
 	searchText,
 	setSearchText,
-	setClicked,
+	setFilterBtnActive,
 }) => {
 	const handleSearch = () => {
 		setResList(
@@ -21,7 +21,7 @@ const Search = ({
 	};
 
 	return (
-		<div className="search-bar mx-auto h-[43px]">
+		<div className="search-bar h-[43px] z-1 shadow-[0px_5px_10px_#E9E9E9]">
 			<input
 				type="text"
 				name="search"
@@ -29,8 +29,8 @@ const Search = ({
 				onChange={(e) => setSearchText(e.target.value)}
 				onKeyDown={(e) => e.key === "Enter" && handleSearch()}
 				placeholder="Search for restaurants"
-				className="py-[6.1px] my-auto text-[20px] font-[400] border-b-1 border-[#BFBFBF] focus:outline-0 focus:border-0 placeholder:font-[300] placeholder:text-[#A6A6A6]"
-				size={19}
+				className="py-[8px] pl-[10px] text-[18px] font-[500] outline-none border-none rounded-l-[0.1cm] placeholder:font-[400] placeholder:text-[#A6A6A6]"
+				size={20}
 			/>
 			{searchText !== "" && (
 				<button
@@ -39,13 +39,13 @@ const Search = ({
 						setSearchText("");
 						setResList(backupResList);
 						setfilteredResList(backupResList);
-						setClicked(false);
+						setFilterBtnActive(false);
 					}}>
 					✖
 				</button>
 			)}
 			<button
-				className="py-[7.95px] px-[12px] text-[17px] font-[500] bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.1cm] shadow-[0px_5px_10px_#E9E9E9] hover:cursor-pointer hover:bg-[#F2F2F2] hover:shadow-none hover:border-[none]"
+				className="py-[8.75px] px-[15px] text-[17px] text-[#FFF] font-[500] bg-[#020202] rounded-r-[0.1cm] cursor-pointer md:hover:bg-[#5D5D5D]"
 				onClick={handleSearch}>
 				Search
 			</button>

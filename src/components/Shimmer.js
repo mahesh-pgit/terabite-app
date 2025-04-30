@@ -4,19 +4,25 @@ const Shimmer = () => {
 		cards.push(
 			<div
 				key={i}
-				className="card h-[335px] w-[250px] my-[20px] mx-[14px] bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.3cm] shadow-[0px_5px_10px_#E9E9E9]">
-				<div className="card-img h-[175px] w-[220px] rounded-[0.3cm] m-[15px] bg-[#F2F2F2]"></div>
+				className="shimmer-card h-[310px] w-[250px] mx-auto bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.3cm] shadow-[0px_5px_10px_#E9E9E9] max-[850px]:min-[700px]:w-[32vw] max-[560px]:h-[290px] max-[560px]:w-[48vw]">
+				<div className="m-[15px] max-[560px]:m-[10px]">
+					<div className="shimmer-img animate-pulse h-[175px] w-[100%] rounded-[0.3cm] bg-[#F2F2F2]"></div>
+				</div>
 			</div>
 		);
 	}
 
-	return <div className="cards-container flex flex-wrap w-11/12 m-auto">{cards}</div>;
+	return (
+		<div className="shimmer-container w-14/15 mx-auto mb-[30px] grid grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] gap-[20px] max-[850px]:min-[700px]:w-[99%] max-[850px]:min-[700px]:grid-cols-[repeat(auto-fill,_minmax(32vw,_1fr))] max-[850px]:min-[700px]:gap-[5px] max-[560px]:w-49/50 max-[560px]:grid-cols-[repeat(auto-fill,_minmax(48vw,_1fr))] max-[560px]:gap-[1vw] max-[560px]:mb-[1vw]">
+			{cards}
+		</div>
+	);
 };
 
 const ShimmerMenu = () => {
 	return (
-		<div className="w-[800px] h-[240px] mx-auto mt-[20px] border-1 border-[#E9E9E9] rounded-[0.3cm] shadow-[0px_5px_10px_#E9E9E9]">
-			<div className="h-[200px] w-[200px] m-[20px] rounded-[0.3cm] bg-[#F2F2F2]"></div>
+		<div className="shimmer-card w-[800px] mx-[auto] mt-[30px] border-1 border-[#E9E9E9] rounded-[0.3cm] shadow-[0px_5px_10px_#E9E9E9] max-[820px]:w-[98%] max-[820px]:mt-[10px]">
+			<div className="shimmer-img animate-pulse h-[175px] w-[175px] m-[20px] bg-[#F2F2F2] rounded-[0.3cm] max-[600px]:h-[125px] max-[600px]:w-[125px] max-[600px]:m-[10px]"></div>
 		</div>
 	);
 };

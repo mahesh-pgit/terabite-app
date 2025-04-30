@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/assets";
 import { useDispatch } from "react-redux";
+import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/assets";
 import { addItem, removeItem } from "../utils/cartSlice";
 
 const MenuItemCard = ({ menuItem }) => {
@@ -36,17 +36,20 @@ const MenuItemCard = ({ menuItem }) => {
 
 	const { name, description, imageId, price, defaultPrice, ratings } = menuItem;
 
+	const addToCartBtnStyles =
+		"w-[120px] absolute left-[18px] bottom-[-3px] flex text-[20px] text-[#1BA672] font-[700] tracking-[-0.5px] bg-[#FFF] rounded-[0.2cm] shadow-[0px_5px_10px_#E9E9E9] max-[600px]:text-[15px] max-[600px]:w-[24vw] max-[600px]:left-[2vw] max-[600px]:bottom-[-2.5vw] max-[500px]:bottom-[-3.5vw] ";
+
 	return (
 		<div className="menu-item-card">
-			<div className=" flex justify-between h-[150px]">
-				<div className="menu-item-info w-[550px] ml-[20px]">
-					<h3 className="text-[18px] text-[#02060CBF] font-[700] tracking-[-0.4px] mt-[10px] mb-[8px]">
+			<div className="flex justify-between h-[150px] max-[600px]:h-[105px]">
+				<div className="menu-item-info w-[550px] ml-[20px] max-[760px]:w-[70vw] max-[760px]:ml-[5px] max-[600px]:w-[65vw]">
+					<h3 className="text-[18px] text-[#02060CBF] font-[700] max-[600px]:text-[15px] max-[600px]:tracking-[-0.6px]">
 						{name}
 					</h3>
-					<h4 className="text-[16px] font-[600] m-[0]">
+					<h4 className="text-[16px] text-[#02060CEB] font-[600] max-[600px]:text-[14px]">
 						₹{price || defaultPrice ? price / 100 || defaultPrice / 100 : null}
 					</h4>
-					<h5 className="text-[13px] font-[450] my-[12px]">
+					<h5 className="text-[13px] text-[#02060CEB] font-[450] max-[600px]:text-[11px]">
 						{ratings.aggregatedRating.rating
 							? `⭐${ratings.aggregatedRating.rating}`
 							: null}{" "}
@@ -54,18 +57,14 @@ const MenuItemCard = ({ menuItem }) => {
 							? `(${ratings.aggregatedRating.ratingCountV2})`
 							: null}
 					</h5>
-					<p className="text-[16px] text-[#02060C99] font-[500] m-[0]">
-						{description
-							? description.length < 140
-								? description
-								: description.slice(0, 140) + "..."
-							: null}
+					<p className="text-[16px] text-[#02060C99] font-[500] overflow-hidden text-ellipsis max-[600px]:text-[14px] max-[600px]:tracking-[-0.6px]">
+						{description}
 					</p>
 				</div>
-				<div className="flex flex-col items-center relative mr-[20px]">
+				<div className="menu-item-img flex flex-col relative mr-[20px] max-[760px]:mr-[5px] max-[600px]:my-auto">
 					{imageId && (
 						<img
-							className="h-[144px] w-[156px] rounded-[0.3cm] object-cover overflow-hidden"
+							className="h-[135px] w-[156px] rounded-[0.3cm] object-cover overflow-hidden max-[600px]:w-[28vw] max-[600px]:h-[100px]"
 							src={SWIGGY_MEDIA_ASSETS_URL + imageId}
 							onContextMenu={(e) => e.preventDefault()}
 							onDragStart={(e) => e.preventDefault()}
@@ -73,23 +72,26 @@ const MenuItemCard = ({ menuItem }) => {
 						/>
 					)}
 					{menuItemCard.itemsInCart <= 0 ? (
-						<button
-							className="absolute right-[18px] bottom-[-3px] w-[120px] text-[20px] text-[#1BA672] font-[700] tracking-[-0.5px] px-0 py-[7px] bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.2cm] shadow-[0px_5px_10px_#E9E9E9] hover:cursor-pointer hover:bg-[#D9DADB] hover:shadow-none hover:border-[none]"
+						<div
+							className={
+								addToCartBtnStyles +
+								"justify-center py-[7px] cursor-pointer md:hover:bg-[#D9DADB]"
+							}
 							onClick={handleAddItem}>
 							ADD
-						</button>
+						</div>
 					) : (
-						<div className="absolute right-[18px] bottom-[-3px] w-[120px] flex justify-between text-[20px] text-[#1BA672] font-[700] tracking-[-0.5px] px-0 bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.2cm] shadow-[0px_5px_10px_#E9E9E9]">
+						<div className={addToCartBtnStyles + "justify-between"}>
 							<div
-								className="px-[15px] py-[7.5px] hover:cursor-pointer hover:bg-[#D9DADB]"
+								className="px-[15px] py-[7px] rounded-l-[0.2cm] cursor-pointer md:hover:bg-[#D9DADB] max-[600px]:px-[3vw]"
 								onClick={handleRemoveItem}>
 								-
 							</div>
-							<div className="py-[7.5px]">
+							<div className="py-[7px]">
 								<h1>{menuItemCard.itemsInCart}</h1>
 							</div>
 							<div
-								className="px-[15px] py-[7.5px] hover:cursor-pointer hover:bg-[#D9DADB]"
+								className="px-[15px] py-[7px] rounded-r-[0.2cm] cursor-pointer md:hover:bg-[#D9DADB] max-[600px]:px-[3vw]"
 								onClick={() => {
 									handleAddItem(menuItemCard);
 								}}>
@@ -99,7 +101,7 @@ const MenuItemCard = ({ menuItem }) => {
 					)}
 				</div>
 			</div>
-			<hr className="border-1 border-[#E9E9E9] w-[780px] mt-[30px] mb-[20px] mx-[auto]" />
+			<hr className="border-1 border-[#E9E9E9] w-[97%] mx-[auto] mt-[30px] mb-[20px]" />
 		</div>
 	);
 };

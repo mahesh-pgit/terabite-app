@@ -1,4 +1,4 @@
-const getLocation = () => {
+const getUserLocation = () => {
 	return new Promise((resolve, reject) => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
@@ -8,7 +8,7 @@ const getLocation = () => {
 					resolve({ lat, lng });
 				},
 				(error) => {
-					reject(error);
+					reject(new Error("Unable to retrieve location."));
 				}
 			);
 		} else {
@@ -17,4 +17,4 @@ const getLocation = () => {
 	});
 };
 
-export default getLocation;
+export default getUserLocation;

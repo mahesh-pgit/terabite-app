@@ -1,16 +1,24 @@
-const TopRatedBtn = ({ resList, setResList, filteredResList, clicked, setClicked }) => {
+const TopRatedBtn = ({
+	resList,
+	setResList,
+	filteredResList,
+	filterBtnActive,
+	setFilterBtnActive,
+}) => {
 	return (
-		<div className="top-rated-filter">
+		<div className="top-rated-filter absolute w-[50%] left-[50%] text-center max-[950px]:static max-[950px]:mt-[10px]">
 			<button
-				className="absolute right-[150px] p-[7.95px] text-[17px] font-[500] bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.1cm] shadow-[0px_5px_10px_#E9E9E9] hover:cursor-pointer hover:bg-[#F2F2F2] hover:shadow-none hover:border-[none]"
-				style={{ backgroundColor: clicked ? "#F0F0F0" : null }}
+				className={`py-[7.95px] px-[10px] text-[17px] font-[500] border-1 border-[#E9E9E9] rounded-[0.1cm] cursor-pointer ${
+					filterBtnActive ? "bg-[#F0F0F0]" : "bg-[#FFF]"
+				}`}
 				onClick={() => {
-					clicked === false
-						? (setClicked(true),
+					filterBtnActive === false
+						? (setFilterBtnActive(true),
 						  setResList(resList.filter((resItem) => resItem.info.avgRating > 4.0)))
-						: (setClicked(false), setResList(filteredResList));
+						: (setFilterBtnActive(false), setResList(filteredResList));
 				}}>
-				Ratings 4.0+ ⭐
+				Ratings 4.0+ ⭐{" "}
+				{filterBtnActive && <span className=" text-[#A6A6A6] text-[15px]">✖</span>}
 			</button>
 		</div>
 	);

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import getLocation from "../utils/getLocation";
+import getUserLocation from "./getUserLocation";
 
 const useRestaurantMenu = (resId) => {
 	const [resInfo, setResInfo] = useState(null);
 
 	useEffect(() => {
-		getLocation()
+		getUserLocation()
 			.then((location) => {
 				const { lat, lng } = location;
 				fetchMenu(lat, lng, resId);

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import getLocation from "./getLocation";
+import getUserLocation from "./getUserLocation";
 
 const useRestaurantsData = () => {
 	const [resList, setResList] = useState([]);
@@ -8,14 +8,16 @@ const useRestaurantsData = () => {
 
 	const [filteredResList, setfilteredResList] = useState([]);
 
+	const [showWarning, setShowWarning] = useState(false);
+
 	useEffect(() => {
-		getLocation()
+		getUserLocation()
 			.then((location) => {
 				const { lat, lng } = location;
 				fetchData(lat, lng);
 			})
-			.catch((error) => {
-				console.error("Error fetching location:", error);
+			.catch(() => {
+				setShowWarning(true);
 			});
 	}, []);
 
@@ -30,7 +32,7 @@ const useRestaurantsData = () => {
 		setfilteredResList(data);
 	};
 
-	return [backupResList, resList, setResList, filteredResList, setfilteredResList];
+	return [backupResList, resList, setResList, filteredResList, setfilteredResList, showWarning];
 };
 
 export default useRestaurantsData;

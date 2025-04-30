@@ -5,14 +5,14 @@ import { Shimmer } from "./Shimmer";
 import useRestaurantsData from "../utils/useRestaurantsData";
 import RestaurantContainer from "./RestaurantContainer";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { OnlineError, SearchError } from "./Error";
+import { LocationWarning, OnlineError, SearchError } from "./Error";
 
 const Body = () => {
 	const [searchText, setSearchText] = useState("");
 
-	const [clicked, setClicked] = useState(false);
+	const [filterBtnActive, setFilterBtnActive] = useState(false);
 
-	const [backupResList, resList, setResList, filteredResList, setfilteredResList] =
+	const [backupResList, resList, setResList, filteredResList, setfilteredResList, showWarning] =
 		useRestaurantsData();
 
 	const onlineStatus = useOnlineStatus();
@@ -21,7 +21,8 @@ const Body = () => {
 
 	return (
 		<div className="body">
-			<div className="filters flex justify-between mt-[35px] mb-[15px]">
+			{showWarning && <LocationWarning />}
+			<div className="filters flex justify-center relative my-[30px] max-[950px]:flex-col max-[950px]:items-center max-[950px]:my-[13px]">
 				<Search
 					backupResList={backupResList}
 					resList={resList}
@@ -29,14 +30,14 @@ const Body = () => {
 					setfilteredResList={setfilteredResList}
 					searchText={searchText}
 					setSearchText={setSearchText}
-					setClicked={setClicked}
+					setFilterBtnActive={setFilterBtnActive}
 				/>
 				<TopRatedBtn
 					resList={resList}
 					setResList={setResList}
 					filteredResList={filteredResList}
-					clicked={clicked}
-					setClicked={setClicked}
+					filterBtnActive={filterBtnActive}
+					setFilterBtnActive={setFilterBtnActive}
 				/>
 			</div>
 			{backupResList.length === 0 ? (

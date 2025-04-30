@@ -1,18 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./src/App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./src/App";
 import Body from "./src/components/Body";
 import RestaurantPage from "./src/components/RestaurantPage";
 import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import Cart from "./src/components/Cart";
 import { Error } from "./src/components/Error";
+import { Provider } from "react-redux";
+import appStore from "./src/utils/appStore";
 
 const appRoutes = createBrowserRouter([
 	{
 		path: "/",
-		element: <App />,
+		element: (
+			<Provider store={appStore}>
+				<App />
+			</Provider>
+		),
 		errorElement: <Error />,
 		children: [
 			{ path: "/", element: <Body /> },
