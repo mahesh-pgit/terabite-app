@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Search from "./Search";
-import TopRatedBtn from "./TopRatedBtn";
-import { Shimmer } from "./Shimmer";
 import useRestaurantsData from "../utils/useRestaurantsData";
-import RestaurantContainer from "./RestaurantContainer";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import Search from "./Search";
+import TopRatedButton from "./TopRatedButton";
+import { Shimmer } from "./Shimmer";
+import RestaurantContainer from "./RestaurantContainer";
 import { LocationWarning, OnlineError, SearchError } from "./Error";
 
 const Body = () => {
@@ -32,7 +32,7 @@ const Body = () => {
 					setSearchText={setSearchText}
 					setFilterBtnActive={setFilterBtnActive}
 				/>
-				<TopRatedBtn
+				<TopRatedButton
 					resList={resList}
 					setResList={setResList}
 					filteredResList={filteredResList}

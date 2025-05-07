@@ -1,6 +1,10 @@
 const APP_LOGO_URL =
 	"https://res.cloudinary.com/dnbu3plzx/image/upload/v1745523285/terabite-logo_mnttl8.png";
 
+const CART_ICON_URL = "https://img.icons8.com/ios/100/shopping-bag--v1.png";
+
+const AVATAR_URL = "https://img.icons8.com/matisse/100/gender-neutral-user--v1.png";
+
 const SWIGGY_MEDIA_ASSETS_URL =
 	"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
@@ -17,8 +21,6 @@ const DOWN_ARROR_SVG = (
 		<path d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z" />
 	</svg>
 );
-
-const CART_ICON_URL = "https://img.icons8.com/ios/100/shopping-bag--v1.png";
 
 const CHECKOUT_ICON_URL = "https://img.icons8.com/ios/100/circled-right-2.png";
 
@@ -40,11 +42,12 @@ const STACK_OVERFLOW_LOGO_URL = "https://img.icons8.com/color-glass/48/stackover
 
 export {
 	APP_LOGO_URL,
+	CART_ICON_URL,
+	AVATAR_URL,
 	SWIGGY_MEDIA_ASSETS_URL,
 	MENU_ICON_URL,
 	UP_ARROW_SVG,
 	DOWN_ARROR_SVG,
-	CART_ICON_URL,
 	CHECKOUT_ICON_URL,
 	GITHUB_LOGO_URL,
 	LINKEDIN_LOGO_URL,

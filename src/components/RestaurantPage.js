@@ -39,7 +39,7 @@ const RestaurantPage = () => {
 						src={SWIGGY_MEDIA_ASSETS_URL + cloudinaryImageId}
 						onContextMenu={(e) => e.preventDefault()}
 						onDragStart={(e) => e.preventDefault()}
-						alt="restaurant-logo"
+						alt="restaurant-image"
 					/>
 				</div>
 				<div className="res-info flex flex-col my-[20px] max-[600px]:my-[12px]">

@@ -1,13 +1,21 @@
-import { useState } from "react";
-import { APP_LOGO_URL } from "../utils/assets";
-import { CART_ICON_URL } from "../utils/assets";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { APP_LOGO_URL } from "../utils/assets";
+import { Link } from "react-router-dom";
+import { CART_ICON_URL } from "../utils/assets";
+import LoginButton from "./LoginButton";
+import UserProfile from "./UserProfile";
 
 const Header = () => {
-	const [loginBtn, setLoginBtn] = useState("Login");
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 	const cartItems = useSelector((store) => store.cart.cartItems);
+
+	useEffect(() => {
+		if (localStorage.getItem("accessToken")) {
+			setIsLoggedIn(true);
+		}
+	}, []);
 
 	let cartCount = 0;
 	cartItems.forEach((cartItem) => {
@@ -15,7 +23,7 @@ const Header = () => {
 	});
 
 	const navItemStyles =
-		"text-[20px] font-[500] mx-[30px] list-none cursor-pointer md:hover:text-[#BFBFBF] max-[900px]:text-[18px] max-[900px]:mx-[20px] max-[700px]:text-[15px] max-[700px]:mx-[10px] max-[400px]:mx-[5px] ";
+		"text-[20px] text-[#02060CEB] font-[500] mx-[30px] list-none cursor-pointer md:hover:text-[#BFBFBF] max-[900px]:text-[18px] max-[900px]:mx-[20px] max-[700px]:text-[15px] max-[700px]:mx-[10px] max-[400px]:mx-[5px] ";
 
 	return (
 		<div className="header flex justify-between h-[100px] shadow-[0_4px_6px_-1px_#0000001A] max-[700px]:h-[75px] max-[500px]:h-[60px]">
@@ -25,9 +33,9 @@ const Header = () => {
 						<img
 							className="w-[100%] h-[100%] object-contain"
 							src={APP_LOGO_URL}
-							alt="app-logo"
 							onContextMenu={(e) => e.preventDefault()}
 							onDragStart={(e) => e.preventDefault()}
+							alt="app-logo"
 						/>
 					</Link>
 				</div>
@@ -54,9 +62,9 @@ const Header = () => {
 								<img
 									className="w-[35px] h-[35px] max-[700px]:w-[30px] max-[700px]:h-[30px] max-[500px]:w-[25px] max-[500px]:h-[25px]"
 									src={CART_ICON_URL}
-									alt="shopping-bag"
 									onContextMenu={(e) => e.preventDefault()}
 									onDragStart={(e) => e.preventDefault()}
+									alt="shopping-bag"
 								/>
 								<h1 className="absolute text-[17px] font-[500] left-[12px] bottom-[-2px] max-[700px]:text-[15px] max-[700px]:left-[10px] max-[700px]:bottom-[-1px] max-[500px]:text-[12px] max-[500px]:left-[8px] max-[500px]:bottom-[-2px]">
 									{cartCount}
@@ -68,13 +76,11 @@ const Header = () => {
 			</div>
 			<div className="login-btn w-2/15 flex justify-center items-center max-[1200px]:w-2/12 max-[900px]:w-2/9 max-[500px]:w-1/7">
 				<div className="w-1/2 max-[900px]:w-2/3 max-[500px]:w-[90%]">
-					<button
-						className="w-[100%] text-[17px] py-[10px] font-[500] border-1 border-[#E9E9E9] rounded-[0.1cm] shadow-[0px_5px_10px_#E9E9E9] cursor-pointer md:hover:bg-[#F2F2F2] md:hover:shadow-none md:hover:border-none max-[700px]:text-[15px] max-[700px]:py-[8px] max-[500px]:text-[13px]"
-						onClick={() =>
-							loginBtn === "Login" ? setLoginBtn("Logout") : setLoginBtn("Login")
-						}>
-						{loginBtn}
-					</button>
+					{!isLoggedIn ? (
+						<LoginButton isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+					) : (
+						<UserProfile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+					)}
 				</div>
 			</div>
 		</div>

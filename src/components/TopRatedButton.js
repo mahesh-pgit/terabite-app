@@ -1,4 +1,4 @@
-const TopRatedBtn = ({
+const TopRatedButton = ({
 	resList,
 	setResList,
 	filteredResList,
@@ -24,4 +24,4 @@ const TopRatedBtn = ({
 	);
 };
 
-export default TopRatedBtn;
+export default TopRatedButton;

@@ -6,10 +6,12 @@ const ContactForm = () => {
 		value: "",
 		isTouched: false,
 	});
+
 	const [email, setEmail] = useState({
 		value: "",
 		isTouched: false,
 	});
+
 	const [message, setMessage] = useState({
 		value: "",
 		isTouched: false,

@@ -13,7 +13,7 @@ const RestaurantCard = ({ resObj }) => {
 						src={SWIGGY_MEDIA_ASSETS_URL + cloudinaryImageId}
 						onContextMenu={(e) => e.preventDefault()}
 						onDragStart={(e) => e.preventDefault()}
-						alt="Restaurant Image"
+						alt="restaurant-image"
 					/>
 				</div>
 				<div className="res-info max-w-[100%] m-[15px] max-[560px]:m-[10px]">

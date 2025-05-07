@@ -42,15 +42,23 @@ const Contact = () => {
 							href="https://www.linkedin.com/in/mahesh-sai-kumar-narava/"
 							target="_blank">
 							<img
-								src={LINKEDIN_LOGO_URL}
 								className={logoDimensions}
+								src={LINKEDIN_LOGO_URL}
+								onContextMenu={(e) => e.preventDefault()}
+								onDragStart={(e) => e.preventDefault()}
 								alt="linkedin-logo"
 							/>
 						</a>
 					</div>
 					<div className={logoStyles}>
 						<a href="mailto:naravamaheshsaikumar.321@gmail.com" target="_blank">
-							<img src={GMAIL_LOGO_URL} className={logoDimensions} alt="gmail-logo" />
+							<img
+								className={logoDimensions}
+								src={GMAIL_LOGO_URL}
+								onContextMenu={(e) => e.preventDefault()}
+								onDragStart={(e) => e.preventDefault()}
+								alt="gmail-logo"
+							/>
 						</a>
 					</div>
 					<div className={logoStyles}>
@@ -58,8 +66,10 @@ const Contact = () => {
 							href="https://wa.me/919885206538?text=Hello,%20I%20am%20impressed%20by%20your%20work%20and%20would%20like%20to%20connect%20with%20you."
 							target="_blank">
 							<img
-								src={WHATSAPP_LOGO_URL}
 								className={logoDimensions}
+								src={WHATSAPP_LOGO_URL}
+								onContextMenu={(e) => e.preventDefault()}
+								onDragStart={(e) => e.preventDefault()}
 								alt="whatsapp-logo"
 							/>
 						</a>
@@ -67,22 +77,32 @@ const Contact = () => {
 					<div className={logoStyles}>
 						<a href="https://www.instagram.com/mahesh_ante_nene/" target="_blank">
 							<img
-								src={INSTAGRAM_LOGO_URL}
 								className={logoDimensions}
+								src={INSTAGRAM_LOGO_URL}
+								onContextMenu={(e) => e.preventDefault()}
+								onDragStart={(e) => e.preventDefault()}
 								alt="instagram-logo"
 							/>
 						</a>
 					</div>
 					<div className={logoStyles}>
 						<a href="https://x.com/Mahesh_3173" target="_blank">
-							<img src={X_LOGO_URL} className={logoDimensions} alt="x-logo" />
+							<img
+								className={logoDimensions}
+								src={X_LOGO_URL}
+								onContextMenu={(e) => e.preventDefault()}
+								onDragStart={(e) => e.preventDefault()}
+								alt="x-logo"
+							/>
 						</a>
 					</div>
 					<div className={logoStyles}>
 						<a href="https://www.reddit.com/user/Mahesh3173/" target="_blank">
 							<img
-								src={REDDIT_LOGO_URL}
 								className={logoDimensions}
+								src={REDDIT_LOGO_URL}
+								onContextMenu={(e) => e.preventDefault()}
+								onDragStart={(e) => e.preventDefault()}
 								alt="reddit-logo"
 							/>
 						</a>
@@ -90,8 +110,10 @@ const Contact = () => {
 					<div className={logoStyles}>
 						<a href="https://stackoverflow.com/users/18588968/mahesh-n" target="_blank">
 							<img
-								src={STACK_OVERFLOW_LOGO_URL}
 								className={logoDimensions}
+								src={STACK_OVERFLOW_LOGO_URL}
+								onContextMenu={(e) => e.preventDefault()}
+								onDragStart={(e) => e.preventDefault()}
 								alt="stackoverflow-logo"
 							/>
 						</a>
@@ -104,8 +126,10 @@ const Contact = () => {
 					<div className={logoStyles}>
 						<a href="https://github.com/mahesh-pgit/terabite-app" target="_blank">
 							<img
-								src={GITHUB_LOGO_URL}
 								className={logoDimensions}
+								src={GITHUB_LOGO_URL}
+								onContextMenu={(e) => e.preventDefault()}
+								onDragStart={(e) => e.preventDefault()}
 								alt="github-logo"
 							/>
 						</a>

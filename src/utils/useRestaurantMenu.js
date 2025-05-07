@@ -11,16 +11,16 @@ const useRestaurantMenu = (resId) => {
 				fetchMenu(lat, lng, resId);
 			})
 			.catch((error) => {
-				console.error("Error fetching location:", error);
+				console.error("Error fetching user location: ", error);
 			});
 	}, []);
 
 	const fetchMenu = async (lat, lng, resId) => {
-		const resData = await fetch(
+		const response = await fetch(
 			`https://terabite-server.onrender.com/api/menu?lat=${lat}&lng=${lng}&restaurantId=${resId}`
 		);
-		const jsonData = await resData.json();
-		setResInfo(jsonData);
+		const data = await response.json();
+		setResInfo(data);
 	};
 
 	return resInfo;

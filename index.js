@@ -8,17 +8,11 @@ import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import Cart from "./src/components/Cart";
 import { Error } from "./src/components/Error";
-import { Provider } from "react-redux";
-import appStore from "./src/utils/appStore";
 
 const appRoutes = createBrowserRouter([
 	{
 		path: "/",
-		element: (
-			<Provider store={appStore}>
-				<App />
-			</Provider>
-		),
+		element: <App />,
 		errorElement: <Error />,
 		children: [
 			{ path: "/", element: <Body /> },

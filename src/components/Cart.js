@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import useOnlineStatus from "../utils/useOnlineStatus";
 import { clearCart } from "../utils/cartSlice";
 import MenuItemCard from "./MenuItemCard";
 import { CHECKOUT_ICON_URL } from "../utils/assets";
-import useOnlineStatus from "../utils/useOnlineStatus";
 import { OnlineError } from "./Error";
 
 const Cart = () => {
@@ -40,7 +40,7 @@ const Cart = () => {
 	let totalPrice = itemTotal + deliveryFee + tax + Number(tip);
 
 	const billRowStyles =
-		"text-[18px] font-[500] text-[#02060CB3] flex justify-between max-[600px]:text-[15px] ";
+		"flex justify-between text-[18px] font-[500] text-[#02060CB3] max-[600px]:text-[15px] ";
 
 	return cartCount !== 0 ? (
 		<div className="cart-page flex justify-evenly mt-[20px] max-[1000px]:flex-col max-[1000px]:items-center max-[820px]:mt-[10px]">

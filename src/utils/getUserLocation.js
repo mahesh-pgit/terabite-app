@@ -7,7 +7,7 @@ const getUserLocation = () => {
 					const lng = position.coords.longitude;
 					resolve({ lat, lng });
 				},
-				(error) => {
+				() => {
 					reject(new Error("Unable to retrieve location."));
 				}
 			);

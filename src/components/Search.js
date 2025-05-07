@@ -9,19 +9,19 @@ const Search = ({
 }) => {
 	const handleSearch = () => {
 		setResList(
-			resList.filter((resItem) =>
+			backupResList.filter((resItem) =>
 				resItem.info.name.toLowerCase().includes(searchText.toLowerCase())
 			)
 		);
 		setfilteredResList(
-			resList.filter((resItem) =>
+			backupResList.filter((resItem) =>
 				resItem.info.name.toLowerCase().includes(searchText.toLowerCase())
 			)
 		);
 	};
 
 	return (
-		<div className="search-bar h-[43px] z-1 shadow-[0px_5px_10px_#E9E9E9]">
+		<div className="search-bar h-[43px] shadow-[0px_5px_10px_#E9E9E9]">
 			<input
 				type="text"
 				name="search"

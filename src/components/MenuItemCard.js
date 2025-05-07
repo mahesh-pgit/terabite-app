@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/assets";
 import { addItem, removeItem } from "../utils/cartSlice";
+import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/assets";
 
 const MenuItemCard = ({ menuItem }) => {
 	const [menuItemCard, setMenuItemCard] = useState(menuItem);

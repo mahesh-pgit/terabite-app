@@ -16,16 +16,17 @@ const useRestaurantsData = () => {
 				const { lat, lng } = location;
 				fetchData(lat, lng);
 			})
-			.catch(() => {
+			.catch((error) => {
+				console.error("Error fetching user location: ", error);
 				setShowWarning(true);
 			});
 	}, []);
 
 	const fetchData = async (lat, lng) => {
-		const resData = await fetch(
+		const response = await fetch(
 			`https://terabite-server.onrender.com/api/restaurants?lat=${lat}&lng=${lng}`
 		);
-		const jsonData = await resData.json();
+		const jsonData = await response.json();
 		const data = jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 		setResList(data);
 		setBackupResList(data);
