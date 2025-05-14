@@ -1,54 +1,41 @@
-const Search = ({
-	backupResList,
-	resList,
-	setResList,
-	setfilteredResList,
-	searchText,
-	setSearchText,
-	setFilterBtnActive,
-}) => {
-	const handleSearch = () => {
-		setResList(
-			backupResList.filter((resItem) =>
-				resItem.info.name.toLowerCase().includes(searchText.toLowerCase())
-			)
-		);
-		setfilteredResList(
-			backupResList.filter((resItem) =>
-				resItem.info.name.toLowerCase().includes(searchText.toLowerCase())
-			)
-		);
-	};
+import { SEARCH_ICON_URL } from "../utils/assets";
 
+const Search = ({ restaurantFilters, setRestaurantFilters }) => {
 	return (
-		<div className="search-bar h-[43px] shadow-[0px_5px_10px_#E9E9E9]">
+		<div className="search-bar w-[400px] flex justify-between mx-auto border-1 border-[#BEBFC5] rounded-[0.1cm]">
 			<input
+				className="py-[5px] pl-[10px] text-[18px] font-[500] outline-none border-none placeholder:font-[400] placeholder:text-[#A6A6A6] max-[400px]:w-[220px]"
 				type="text"
 				name="search"
-				value={searchText}
-				onChange={(e) => setSearchText(e.target.value)}
-				onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+				value={restaurantFilters.searchText}
+				onChange={(e) =>
+					setRestaurantFilters({ ...restaurantFilters, searchText: e.target.value })
+				}
+				onKeyDown={(e) => {
+					if (e.key === "Enter") {
+						setRestaurantFilters({ ...restaurantFilters, searchText: e.target.value });
+					}
+				}}
 				placeholder="Search for restaurants"
-				className="py-[8px] pl-[10px] text-[18px] font-[500] outline-none border-none rounded-l-[0.1cm] placeholder:font-[400] placeholder:text-[#A6A6A6]"
-				size={20}
+				size={30}
 			/>
-			{searchText !== "" && (
-				<button
-					className="cursor-pointer text-[20px] bg-[#FFF] border-0 py-[6.5px] px-[10px]"
+			{restaurantFilters.searchText === "" ? (
+				<img
+					className="w-[25px] h-[25px] my-auto mx-[20px]"
+					src={SEARCH_ICON_URL}
+					onContextMenu={(e) => e.preventDefault()}
+					onDragStart={(e) => e.preventDefault()}
+					alt="search"
+				/>
+			) : (
+				<div
+					className="text-[20px] my-auto mx-[20px] cursor-pointer"
 					onClick={() => {
-						setSearchText("");
-						setResList(backupResList);
-						setfilteredResList(backupResList);
-						setFilterBtnActive(false);
+						setRestaurantFilters({ ...restaurantFilters, searchText: "" });
 					}}>
 					✖
-				</button>
+				</div>
 			)}
-			<button
-				className="py-[8.75px] px-[15px] text-[17px] text-[#FFF] font-[500] bg-[#020202] rounded-r-[0.1cm] cursor-pointer md:hover:bg-[#5D5D5D]"
-				onClick={handleSearch}>
-				Search
-			</button>
 		</div>
 	);
 };

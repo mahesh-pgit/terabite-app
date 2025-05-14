@@ -5,6 +5,8 @@ const CART_ICON_URL = "https://img.icons8.com/ios/100/shopping-bag--v1.png";
 
 const AVATAR_URL = "https://img.icons8.com/matisse/100/gender-neutral-user--v1.png";
 
+const SEARCH_ICON_URL = "https://img.icons8.com/ios/100/search--v1.png";
+
 const SWIGGY_MEDIA_ASSETS_URL =
 	"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
@@ -44,6 +46,7 @@ export {
 	APP_LOGO_URL,
 	CART_ICON_URL,
 	AVATAR_URL,
+	SEARCH_ICON_URL,
 	SWIGGY_MEDIA_ASSETS_URL,
 	MENU_ICON_URL,
 	UP_ARROW_SVG,

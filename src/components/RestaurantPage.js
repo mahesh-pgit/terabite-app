@@ -5,16 +5,21 @@ import { ShimmerMenu } from "./Shimmer";
 import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/assets";
 import { MENU_ICON_URL } from "../utils/assets";
 import RestaurantMenu from "./RestaurantMenu";
-import { OnlineError } from "./Error";
+import { LocationWarning, OnlineError } from "./Error";
 
 const RestaurantPage = () => {
 	const { resId } = useParams();
 
-	const resInfo = useRestaurantMenu(resId);
+	const [restaurantMenuData, showLocationWarning] = useRestaurantMenu(resId);
 
 	const onlineStatus = useOnlineStatus();
 
-	if (resInfo === null) return <ShimmerMenu />;
+	if (restaurantMenuData === null)
+		return (
+			<>
+				<ShimmerMenu /> {showLocationWarning && <LocationWarning />}
+			</>
+		);
 
 	if (onlineStatus === false) return <OnlineError />;
 
@@ -28,7 +33,7 @@ const RestaurantPage = () => {
 		areaName,
 		city,
 		sla,
-	} = resInfo?.data?.cards[2]?.card?.card?.info;
+	} = restaurantMenuData?.data?.cards[2]?.card?.card?.info;
 
 	return (
 		<div className="res-page w-[800px] mx-[auto] mt-[30px] max-[820px]:w-[98%] max-[820px]:mt-[10px]">
@@ -81,7 +86,7 @@ const RestaurantPage = () => {
 					<h1 className="text-[25px] font-[500] max-[600px]:text-[18px]">MENU</h1>
 				</div>
 				<div className="res-menu-container">
-					<RestaurantMenu resInfo={resInfo} />
+					<RestaurantMenu restaurantMenuData={restaurantMenuData} />
 				</div>
 			</div>
 		</div>

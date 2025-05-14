@@ -2,13 +2,11 @@ import { useState, useEffect } from "react";
 import getUserLocation from "./getUserLocation";
 
 const useRestaurantsData = () => {
-	const [resList, setResList] = useState([]);
+	const [restaurantsList, setRestaurantsList] = useState([]);
 
-	const [backupResList, setBackupResList] = useState([]);
+	const [allRestaurantsList, setAllRestaurantsList] = useState([]);
 
-	const [filteredResList, setfilteredResList] = useState([]);
-
-	const [showWarning, setShowWarning] = useState(false);
+	const [showLocationWarning, setShowLocationWarning] = useState(false);
 
 	useEffect(() => {
 		getUserLocation()
@@ -18,7 +16,7 @@ const useRestaurantsData = () => {
 			})
 			.catch((error) => {
 				console.error("Error fetching user location: ", error);
-				setShowWarning(true);
+				setShowLocationWarning(true);
 			});
 	}, []);
 
@@ -28,12 +26,11 @@ const useRestaurantsData = () => {
 		);
 		const jsonData = await response.json();
 		const data = jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-		setResList(data);
-		setBackupResList(data);
-		setfilteredResList(data);
+		setAllRestaurantsList(data);
+		setRestaurantsList(data);
 	};
 
-	return [backupResList, resList, setResList, filteredResList, setfilteredResList, showWarning];
+	return [allRestaurantsList, restaurantsList, setRestaurantsList, showLocationWarning];
 };
 
 export default useRestaurantsData;

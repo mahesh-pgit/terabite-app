@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/assets";
 
-const RestaurantCard = ({ resObj }) => {
-	const { id, cloudinaryImageId, name, cuisines, avgRating, sla, areaName } = resObj?.info;
+const RestaurantCard = ({ restaurantData }) => {
+	const { id, cloudinaryImageId, name, cuisines, avgRating, sla, areaName } =
+		restaurantData?.info;
 
 	return (
 		<div className="res-card h-[100%] w-[250px] mx-auto bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.3cm] shadow-[0px_5px_10px_#E9E9E9] cursor-pointer md:hover:bg-[#F2F2F2] max-[850px]:min-[700px]:w-[32vw] max-[560px]:w-[48vw]">

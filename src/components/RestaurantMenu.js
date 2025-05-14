@@ -1,11 +1,11 @@
 import { useState } from "react";
 import CategoryItem from "./CategoryItem";
 
-const RestaurantMenu = ({ resInfo }) => {
+const RestaurantMenu = ({ restaurantMenuData }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 
 	const categoriesData =
-		resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+		restaurantMenuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
 			(card) =>
 				card.card.card["@type"] ===
 				"type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"

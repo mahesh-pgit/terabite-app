@@ -43,14 +43,14 @@ const LocationWarning = () => {
 	);
 };
 
-const SearchError = ({ searchText }) => {
+const FilterError = () => {
 	return (
 		<div className="search-error flex flex-col items-center text-center">
 			<h1 className="text-[40px] font-[600] m-[10px] max-[600px]:text-[25px]">
-				Sorry, No results found for "{searchText}"
+				Sorry, No results found
 			</h1>
 			<h2 className="text-[30px] font-[500] m-[10px] max-[600px]:text-[20px]">
-				Please check the spelling or try searching for something else...
+				Try out different combinations of filters and search terms.
 			</h2>
 		</div>
 	);
@@ -67,4 +67,4 @@ const OnlineError = () => {
 	);
 };
 
-export { Error, LocationWarning, SearchError, OnlineError };
+export { Error, LocationWarning, FilterError, OnlineError };
