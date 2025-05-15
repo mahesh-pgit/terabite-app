@@ -21,13 +21,19 @@ const useRestaurantsData = () => {
 	}, []);
 
 	const fetchData = async (lat, lng) => {
-		const response = await fetch(
-			`https://terabite-server.onrender.com/api/restaurants?lat=${lat}&lng=${lng}`
-		);
-		const jsonData = await response.json();
-		const data = jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-		setAllRestaurantsList(data);
-		setRestaurantsList(data);
+		try {
+			const response = await fetch(`/api/restaurants?lat=${lat}&lng=${lng}`);
+			if (!response.ok) {
+				throw new Error("Response not OK");
+			}
+			const jsonData = await response.json();
+			const data =
+				jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+			setAllRestaurantsList(data);
+			setRestaurantsList(data);
+		} catch (error) {
+			console.error("Fetch Error:", error);
+		}
 	};
 
 	return [allRestaurantsList, restaurantsList, setRestaurantsList, showLocationWarning];
