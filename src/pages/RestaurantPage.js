@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
-import useRestaurantMenu from "../utils/useRestaurantMenu";
-import useOnlineStatus from "../utils/useOnlineStatus";
-import { ShimmerMenu } from "./Shimmer";
-import { SWIGGY_MEDIA_ASSETS_URL } from "../utils/assets";
-import { MENU_ICON_URL } from "../utils/assets";
-import RestaurantMenu from "./RestaurantMenu";
-import { LocationWarning, OnlineError } from "./Error";
+import useRestaurantMenu from "../hooks/useRestaurantMenu";
+import useOnlineStatus from "../hooks/useOnlineStatus";
+import { ShimmerMenu } from "../components/Shimmer";
+import { SWIGGY_MEDIA_ASSETS_URL } from "../assets/assets";
+import { MENU_ICON_URL } from "../assets/assets";
+import RestaurantMenu from "../features/menu/RestaurantMenu";
+import LocationWarning from "../components/LocationWarning";
+import OnlineError from "../components/OnlineError";
 
 const RestaurantPage = () => {
 	const { resId } = useParams();

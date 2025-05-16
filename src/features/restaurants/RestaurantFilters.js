@@ -1,9 +1,22 @@
-import useRestaurantFilters from "../utils/useRestaurantFilters";
-import Search from "./Search";
-import FilterButton from "./FilterButton";
+import useRestaurantFilters from "../../hooks/useRestaurantFilters";
+import Search from "../../components/Search";
+import FilterButton from "../../components/FilterButton";
+
+const defaultFilters = {
+	searchText: "",
+	sortBy: "relevance",
+	fastDelivery: false,
+	ratingAboveFour: false,
+	ratingAboveFourDotFive: false,
+	pureVeg: false,
+	costbelow300: false,
+	costbetween300and600: false,
+	costabove600: false,
+};
 
 const RestaurantFilters = ({ allRestaurantsList, setRestaurantsList }) => {
-	const [defaultFilters, restaurantFilters, setRestaurantFilters] = useRestaurantFilters(
+	const [restaurantFilters, setRestaurantFilters] = useRestaurantFilters(
+		defaultFilters,
 		allRestaurantsList,
 		setRestaurantsList
 	);

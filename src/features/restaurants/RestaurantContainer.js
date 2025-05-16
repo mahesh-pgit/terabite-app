@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard from "../../components/RestaurantCard";
 
 const RestaurantContainer = ({ restaurantsList }) => {
 	return (

@@ -1,5 +1,5 @@
 const APP_LOGO_URL =
-	"https://res.cloudinary.com/dnbu3plzx/image/upload/v1745523285/terabite-logo_mnttl8.png";
+	"https://res.cloudinary.com/dnbu3plzx/image/upload/v1747430068/terabite-logo-v1.1_y73ykg.png";
 
 const CART_ICON_URL = "https://img.icons8.com/ios/100/shopping-bag--v1.png";
 

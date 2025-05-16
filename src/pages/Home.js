@@ -1,9 +1,11 @@
-import useRestaurantsData from "../utils/useRestaurantsData";
-import useOnlineStatus from "../utils/useOnlineStatus";
-import RestaurantFilters from "./RestaurantFilters";
-import { Shimmer } from "./Shimmer";
-import RestaurantContainer from "./RestaurantContainer";
-import { LocationWarning, OnlineError, FilterError } from "./Error";
+import useRestaurantsData from "../hooks/useRestaurantsData";
+import useOnlineStatus from "../hooks/useOnlineStatus";
+import { Shimmer } from "../components/Shimmer";
+import RestaurantFilters from "../features/restaurants/RestaurantFilters";
+import RestaurantContainer from "../features/restaurants/RestaurantContainer";
+import LocationWarning from "../components/LocationWarning";
+import FilterError from "../components/FilterError";
+import OnlineError from "../components/OnlineError";
 
 const Home = () => {
 	const [allRestaurantsList, restaurantsList, setRestaurantsList, showLocationWarning] =

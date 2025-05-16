@@ -1,5 +1,5 @@
-import useOnlineStatus from "../utils/useOnlineStatus";
-import { OnlineError } from "./Error";
+import useOnlineStatus from "../hooks/useOnlineStatus";
+import OnlineError from "../components/OnlineError";
 
 const About = () => {
 	const onlineStatus = useOnlineStatus();

@@ -7,10 +7,10 @@ import {
 	X_LOGO_URL,
 	REDDIT_LOGO_URL,
 	STACK_OVERFLOW_LOGO_URL,
-} from "../utils/assets";
-import ContactForm from "./ContactForm";
-import useOnlineStatus from "../utils/useOnlineStatus";
-import { OnlineError } from "./Error";
+} from "../assets/assets";
+import ContactForm from "../components/ContactForm";
+import useOnlineStatus from "../hooks/useOnlineStatus";
+import OnlineError from "../components/OnlineError";
 
 const Contact = () => {
 	const onlineStatus = useOnlineStatus();

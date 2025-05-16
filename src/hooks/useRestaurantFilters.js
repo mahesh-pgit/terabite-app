@@ -1,18 +1,6 @@
 import { useState, useEffect } from "react";
 
-const defaultFilters = {
-	searchText: "",
-	sortBy: "relevance",
-	fastDelivery: false,
-	ratingAboveFour: false,
-	ratingAboveFourDotFive: false,
-	pureVeg: false,
-	costbelow300: false,
-	costbetween300and600: false,
-	costabove600: false,
-};
-
-const useRestaurantFilters = (allRestaurantsList, setRestaurantsList) => {
+const useRestaurantFilters = (defaultFilters, allRestaurantsList, setRestaurantsList) => {
 	const [restaurantFilters, setRestaurantFilters] = useState({ ...defaultFilters });
 
 	useEffect(() => {
@@ -90,7 +78,7 @@ const useRestaurantFilters = (allRestaurantsList, setRestaurantsList) => {
 		setRestaurantsList(filteredList);
 	};
 
-	return [defaultFilters, restaurantFilters, setRestaurantFilters];
+	return [restaurantFilters, setRestaurantFilters];
 };
 
 export default useRestaurantFilters;

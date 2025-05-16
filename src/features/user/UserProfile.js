@@ -1,12 +1,12 @@
-import { useState, useRef, useEffect, useContext } from "react";
-import UserContext from "../utils/UserContext";
-import { AVATAR_URL } from "../utils/assets";
-import LoginButton from "./LoginButton";
+import { useState, useRef, useEffect } from "react";
+import { useUserContext } from "../../context/UserContext";
+import { AVATAR_URL } from "../../assets/assets";
+import LoginButton from "../../components/LoginButton";
 
 const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
 	const [isProfileOpen, setIsProfileOpen] = useState(false);
 
-	const { userInfo } = useContext(UserContext);
+	const { userInfo } = useUserContext();
 
 	const profileRef = useRef(null);
 

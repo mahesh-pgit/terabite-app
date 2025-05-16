@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import getUserLocation from "./getUserLocation";
+import getUserLocation from "../services/getUserLocation";
 
 const useRestaurantsData = () => {
 	const [restaurantsList, setRestaurantsList] = useState([]);

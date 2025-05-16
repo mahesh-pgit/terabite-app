@@ -1,10 +1,9 @@
-import { useContext } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
-import UserContext from "../utils/UserContext";
-import getGoogleUserData from "../utils/getGoogleUserData";
+import { useUserContext } from "../context/UserContext";
+import getGoogleUserData from "../services/getGoogleUserData";
 
 const LoginButton = ({ isLoggedIn, setIsLoggedIn }) => {
-	const { setUserInfo } = useContext(UserContext);
+	const { setUserInfo } = useUserContext();
 
 	const login = useGoogleLogin({
 		onSuccess: async (tokenResponse) => {

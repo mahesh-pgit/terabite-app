@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import useOnlineStatus from "../utils/useOnlineStatus";
-import { clearCart } from "../utils/cartSlice";
-import MenuItemCard from "./MenuItemCard";
-import { CHECKOUT_ICON_URL } from "../utils/assets";
-import { OnlineError } from "./Error";
+import useOnlineStatus from "../hooks/useOnlineStatus";
+import { clearCart } from "../store/cartSlice";
+import MenuItemCard from "../components/MenuItemCard";
+import { CHECKOUT_ICON_URL } from "../assets/assets";
+import OnlineError from "../components/OnlineError";
 
 const Cart = () => {
 	const [tip, setTip] = useState("");
@@ -22,12 +22,11 @@ const Cart = () => {
 	};
 
 	let cartCount = 0;
-	cartItems.forEach((cartItem) => {
-		cartCount = cartCount + cartItem.itemsInCart;
-	});
 
 	let itemTotal = 0;
+
 	cartItems.forEach((cartItem) => {
+		cartCount = cartCount + cartItem.itemsInCart;
 		itemTotal =
 			itemTotal +
 			(cartItem.price / 100 || cartItem.defaultPrice / 100) * cartItem.itemsInCart;

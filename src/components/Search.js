@@ -1,4 +1,4 @@
-import { SEARCH_ICON_URL } from "../utils/assets";
+import { SEARCH_ICON_URL } from "../assets/assets";
 
 const Search = ({ restaurantFilters, setRestaurantFilters }) => {
 	return (

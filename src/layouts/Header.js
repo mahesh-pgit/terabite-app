@@ -1,19 +1,31 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { APP_LOGO_URL } from "../utils/assets";
+import { useUserContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
-import { CART_ICON_URL } from "../utils/assets";
-import LoginButton from "./LoginButton";
-import UserProfile from "./UserProfile";
+import { APP_LOGO_URL } from "../assets/assets";
+import { CART_ICON_URL } from "../assets/assets";
+import LoginButton from "../components/LoginButton";
+import getGoogleUserData from "../services/getGoogleUserData";
+import UserProfile from "../features/user/UserProfile";
 
 const Header = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+	const { setUserInfo } = useUserContext();
 
 	const cartItems = useSelector((store) => store.cart.cartItems);
 
 	useEffect(() => {
 		if (localStorage.getItem("accessToken")) {
-			setIsLoggedIn(true);
+			getGoogleUserData(localStorage.getItem("accessToken")).then((data) => {
+				if (data) {
+					setUserInfo(data);
+					setIsLoggedIn(true);
+				} else {
+					setIsLoggedIn(false);
+					localStorage.removeItem("accessToken");
+				}
+			});
 		}
 	}, []);
 

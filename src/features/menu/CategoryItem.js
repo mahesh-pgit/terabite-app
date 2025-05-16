@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { UP_ARROW_SVG, DOWN_ARROR_SVG } from "../utils/assets";
-import MenuItemCard from "./MenuItemCard";
+import { UP_ARROW_SVG, DOWN_ARROR_SVG } from "../../assets/assets";
+import MenuItemCard from "../../components/MenuItemCard";
 
 const CategoryItem = ({ categoryData, index, activeIndex, setActiveIndex }) => {
 	const cartItems = useSelector((store) => store.cart.cartItems);
