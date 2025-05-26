@@ -6,11 +6,15 @@
 	font-family: Gilroy, arial, "Helvetica Neue", sans-serif;
 }
 
-.menu-item-info > p {
-	display: -webkit-box;
-	line-clamp: 2;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
+.no-scrollbar::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Edge(latest) */
+}
+.no-scrollbar {
+	-ms-overflow-style: none; /* IE and Edge(old) */
+	scrollbar-width: none; /* Firefox */
+}
+
+.line-break-anyword {
 	line-break: anywhere;
 	word-break: break-word;
 }

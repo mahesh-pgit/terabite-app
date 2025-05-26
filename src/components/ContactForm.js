@@ -39,7 +39,7 @@ const ContactForm = () => {
 	};
 
 	const inputFieldStyles =
-		"p-[15px] my-[10px] text-[15px] text-[#525252] font-[600] bg-[#FFF] border-2 border-[#02060C0D] rounded-[7px] shadow-[0px_4px_8px_#1B1E2414] placeholder:text-[#757575] focus:outline-none focus:border-[#64FFFF] focus:shadow-none ";
+		"p-[15px] my-[10px] text-[15px] text-[#525252] font-[600] bg-[#FFF] border-2 border-[#02060C0D] rounded-[7px] placeholder:text-[#757575] focus:outline-none focus:border-[#64FFFF] max-[600px]:p-[10px] ";
 
 	const errorMsgStyles = "text-red-500 text-[12px] font-[600] ml-[10px] ";
 
@@ -47,9 +47,9 @@ const ContactForm = () => {
 		<div className="contact-form w-auto max-[600px]:flex max-[600px]:justify-center">
 			<form
 				onSubmit={handleSubmit}
-				className="w-[400px] px-[30px] py-[20px] border-2 border-[#FFF] rounded-[20px] hover:border-[#FF64FF] max-[800px]:w-[300px] max-[600px]:w-[90vw]">
+				className="w-[400px] px-[30px] py-[20px] border-2 border-[#FFF] rounded-[20px] hover:border-[#FF64FF] max-[735px]:w-[350px] max-[685px]:w-[90vw]">
 				<fieldset className="flex flex-col">
-					<h1 className="text-[30px] font-[700] text-[#02060CEB] ml-[5px] mb-[10px] max-[850px]:text-[25px] max-[600px]:m-0">
+					<h1 className="text-[30px] font-[700] text-[#02060CEB] ml-[5px] mb-[10px] max-[860px]:text-[20px] max-[685px]:m-0">
 						Get in touch
 					</h1>
 					<input
@@ -97,7 +97,7 @@ const ContactForm = () => {
 							setSubmitClicked(true);
 							setShowSuccessMessage(false);
 						}}
-						className="w-2/8 m-[20px] py-[10px] text-[12px] text-[#000] bg-[#FFF] font-[700] rounded-[10px] shadow-[0px_4px_8px_#1B1E2414] cursor-pointer md:hover:shadow-none md:hover:bg-[#64FFFF] max-md:focus:bg-[#64FFFF]">
+						className="w-2/8 my-[20px] py-[10px] text-[12px] text-[#000] bg-[#FFF] font-[700] rounded-[10px] shadow-[0px_4px_8px_#1B1E2414] cursor-pointer md:hover:shadow-none hover:bg-[#64FFFF]">
 						Submit
 					</button>
 					{showSuccessMessage && (
@@ -106,9 +106,14 @@ const ContactForm = () => {
 						</p>
 					)}
 					<p className="text-center text-[16px] text-[#7A7A7A] font-[500]">
-						By contacting us you agree to the{" "}
-						<span className="text-[#64FF] cursor-pointer">Terms and Conditions</span>{" "}
-						and <span className="text-[#64FF] cursor-pointer">Privacy Policy</span>
+						By contacting us you agree to the&nbsp;
+						<span className="text-[#64FF] font-[600] cursor-pointer">
+							Terms and Conditions
+						</span>
+						&nbsp; and&nbsp;
+						<span className="text-[#64FF] font-[600] cursor-pointer">
+							Privacy Policy
+						</span>
 					</p>
 				</fieldset>
 			</form>

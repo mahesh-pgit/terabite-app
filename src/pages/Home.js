@@ -5,7 +5,7 @@ import RestaurantFilters from "../features/restaurants/RestaurantFilters";
 import RestaurantContainer from "../features/restaurants/RestaurantContainer";
 import LocationWarning from "../components/LocationWarning";
 import FilterError from "../components/FilterError";
-import OnlineError from "../components/OnlineError";
+import OfflineError from "../components/OfflineError";
 
 const Home = () => {
 	const [allRestaurantsList, restaurantsList, setRestaurantsList, showLocationWarning] =
@@ -13,21 +13,25 @@ const Home = () => {
 
 	const onlineStatus = useOnlineStatus();
 
-	if (onlineStatus === false) return <OnlineError />;
+	if (onlineStatus === false) return <OfflineError />;
 
 	return (
-		<div className="home w-14/15 mx-auto my-[20px] max-[850px]:min-[700px]:w-[99%] max-[560px]:w-49/50 max-[560px]:mb-[1vw]">
+		<div className="home w-12/15 mx-auto max-[1000px]:w-13/15 max-[800px]:w-49/50">
 			{showLocationWarning && <LocationWarning />}
-			<RestaurantFilters
-				allRestaurantsList={allRestaurantsList}
-				setRestaurantsList={setRestaurantsList}
-			/>
 			{allRestaurantsList.length === 0 ? (
 				<Shimmer />
-			) : restaurantsList.length === 0 ? (
-				<FilterError />
 			) : (
-				<RestaurantContainer restaurantsList={restaurantsList} />
+				<>
+					<RestaurantFilters
+						allRestaurantsList={allRestaurantsList}
+						setRestaurantsList={setRestaurantsList}
+					/>
+					{restaurantsList.length === 0 ? (
+						<FilterError />
+					) : (
+						<RestaurantContainer restaurantsList={restaurantsList} />
+					)}
+				</>
 			)}
 		</div>
 	);

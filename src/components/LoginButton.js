@@ -26,7 +26,7 @@ const LoginButton = ({ isLoggedIn, setIsLoggedIn }) => {
 	return (
 		<div>
 			<button
-				className="w-[100%] text-[17px] text-[#02060CEB] py-[10px] font-[500] bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.1cm] shadow-[0px_5px_10px_#E9E9E9] cursor-pointer md:hover:bg-[#F2F2F2] md:hover:shadow-none md:hover:border-none max-[700px]:text-[15px] max-[700px]:py-[8px] max-[500px]:text-[13px]"
+				className="px-[16px] py-[6px] text-[16px] text-[#02060CEB] font-[500] bg-[#FFF] border-1 border-[#D9DADB] rounded-[0.1cm] cursor-pointer md:hover:scale-95 max-[885px]:text-[14px] max-[610px]:text-[12px] max-[610px]:px-[10px]"
 				onClick={() => (!isLoggedIn ? login() : logout())}>
 				{!isLoggedIn ? "Login" : "Logout"}
 			</button>

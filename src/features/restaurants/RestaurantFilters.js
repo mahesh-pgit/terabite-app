@@ -1,6 +1,7 @@
 import useRestaurantFilters from "../../hooks/useRestaurantFilters";
 import Search from "../../components/Search";
 import FilterButton from "../../components/FilterButton";
+import { CLEAR_FILTERS_SVG } from "../../assets/assets";
 
 const defaultFilters = {
 	searchText: "",
@@ -29,16 +30,28 @@ const RestaurantFilters = ({ allRestaurantsList, setRestaurantsList }) => {
 		"pureVeg",
 		"costbelow300",
 		"costbetween300and600",
-		"costabove600",
+		// "costabove600",
 	];
 
 	return (
-		<div>
+		<div className="filters-container">
 			<Search
 				restaurantFilters={restaurantFilters}
 				setRestaurantFilters={setRestaurantFilters}
 			/>
-			<div className="filters flex my-[15px]">
+			<div className="filters flex items-center overflow-x-auto whitespace-nowrap no-scrollbar">
+				{/* no-scrollbar is a custom class to dismiss scrollbar */}
+				{JSON.stringify(restaurantFilters) !== JSON.stringify(defaultFilters) && (
+					<div className="inline-block mr-[10px]">
+						<div
+							className="w-[25px] h-[25px] text-[#D70000] cursor-pointer md:hover:text-[#FF0000] max-md:text-[#FF0000] max-[610px]:w-[20px] max-[610px]:h-[20px]"
+							onClick={() => {
+								setRestaurantFilters({ ...defaultFilters });
+							}}>
+							{CLEAR_FILTERS_SVG}
+						</div>
+					</div>
+				)}
 				{filterIds.map((filterId) => (
 					<FilterButton
 						key={filterId}
@@ -48,15 +61,6 @@ const RestaurantFilters = ({ allRestaurantsList, setRestaurantsList }) => {
 						setRestaurantFilters={setRestaurantFilters}
 					/>
 				))}
-				{JSON.stringify(restaurantFilters) !== JSON.stringify(defaultFilters) && (
-					<h3
-						className="flex my-auto mx-[5px] text-[#D9534F] underline hover:text-[#C9302C] cursor-pointer"
-						onClick={() => {
-							setRestaurantFilters({ ...defaultFilters });
-						}}>
-						Clear Filters
-					</h3>
-				)}
 			</div>
 		</div>
 	);

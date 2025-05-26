@@ -8,16 +8,16 @@ const FilterButton = ({ filterId, defaultFilters, restaurantFilters, setRestaura
 			setFilterButtonActive(false);
 	}, [restaurantFilters, defaultFilters]);
 
-	const filterButtonStyles = `mx-[5px] p-[6px] text-[15px] font-[450] border-1 border-[#D9DADB] rounded-[0.6cm] cursor-pointer ${
-		filterButtonActive ? "bg-[#F0F0F0]" : "bg-[#FFF]"
-	} `;
+	const filterButtonStyles = `px-[10px] py-[6px] text-[14px] font-[450] border-1 rounded-[0.6cm] cursor-pointer ${
+		filterButtonActive ? "bg-[#F0F0F5] border-[#3D4046]" : "bg-[#FFF] border-[#D9DADB]"
+	} max-[610px]:text-[12px] max-[610px]:px-[8px] max-[610px]:py-[4px] `;
 
-	const sortOptionStyles = "text-[15px] font-[450] bg-[#FFF] ";
+	const sortOptionStyles = "text-[14px] font-[450] bg-[#FFF] ";
 
 	return filterId === "sortBy" ? (
-		<div className="sort-by">
+		<div className="sort-by inline-block m-0">
 			<select
-				className={filterButtonStyles + "pr-[5px]"}
+				className={filterButtonStyles + "py-[7px] max-[610px]:py-[5px]"}
 				value={restaurantFilters.sortBy}
 				onChange={(e) => {
 					e.target.value !== "relevance"
@@ -43,7 +43,7 @@ const FilterButton = ({ filterId, defaultFilters, restaurantFilters, setRestaura
 			</select>
 		</div>
 	) : (
-		<div className="filter-button">
+		<div className="filter-button inline-block ml-[10px]">
 			<button
 				className={filterButtonStyles}
 				onClick={() => {
@@ -68,7 +68,7 @@ const FilterButton = ({ filterId, defaultFilters, restaurantFilters, setRestaura
 					: filterId === "costabove600"
 					? "Greater than Rs. 600 💵"
 					: "Invalid Filter ID"}
-				{filterButtonActive && <span className=" text-[#A6A6A6] text-[15px]"> ✖</span>}
+				{filterButtonActive && <span className="text-[#A6A6A6]">&nbsp;✖</span>}
 			</button>
 		</div>
 	);

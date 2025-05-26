@@ -4,7 +4,7 @@ import useOnlineStatus from "../hooks/useOnlineStatus";
 import { clearCart } from "../store/cartSlice";
 import MenuItemCard from "../components/MenuItemCard";
 import { CHECKOUT_ICON_URL } from "../assets/assets";
-import OnlineError from "../components/OnlineError";
+import OfflineError from "../components/OfflineError";
 
 const Cart = () => {
 	const [tip, setTip] = useState("");
@@ -15,7 +15,7 @@ const Cart = () => {
 
 	const onlineStatus = useOnlineStatus();
 
-	if (onlineStatus === false) return <OnlineError />;
+	if (onlineStatus === false) return <OfflineError />;
 
 	const handleClearCart = () => {
 		dispatch(clearCart());
@@ -47,7 +47,7 @@ const Cart = () => {
 				<div className="relative flex justify-center mb-[25px]">
 					<h1 className="text-[30px] font-[500] max-[600px]:text-[20px]">Cart</h1>
 					<button
-						className="absolute right-[5%] p-[10px] text-[20px] font-[500] bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.1cm] shadow-[0px_5px_10px_#E9E9E9] cursor-pointer md:hover:bg-[#F2F2F2] md:hover:shadow-none md:hover:border-[none] max-[600px]:text-[15px] max-[600px]:p-[5px]"
+						className="absolute right-[5%] p-[10px] text-[20px] font-[500] bg-[#FFF] border-1 border-[#E9E9E9] rounded-[0.1cm] cursor-pointer md:hover:bg-[#F2F2F2] md:hover:border-none max-[600px]:text-[15px] max-[600px]:p-[5px]"
 						onClick={handleClearCart}>
 						Clear Cart
 					</button>
@@ -94,11 +94,11 @@ const Cart = () => {
 					<div className="flex justify-center">
 						<h1 className="text-[20px] font-[500] max-[600px]:text-[15px]">CHECKOUT</h1>
 						<img
-							className="w-[30px] h-[30px] ml-[5px] max-[600px]:w-[20px] max-[600px]:h-[20px]"
 							src={CHECKOUT_ICON_URL}
+							alt="circled-right"
+							className="w-[30px] h-[30px] ml-[5px] max-[600px]:w-[20px] max-[600px]:h-[20px]"
 							onContextMenu={(e) => e.preventDefault()}
 							onDragStart={(e) => e.preventDefault()}
-							alt="circled-right"
 						/>
 					</div>
 				</button>

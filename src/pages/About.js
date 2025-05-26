@@ -1,21 +1,22 @@
 import useOnlineStatus from "../hooks/useOnlineStatus";
-import OnlineError from "../components/OnlineError";
+import OfflineError from "../components/OfflineError";
 
 const About = () => {
 	const onlineStatus = useOnlineStatus();
 
-	if (onlineStatus === false) return <OnlineError />;
+	if (onlineStatus === false) return <OfflineError />;
 
-	const sectionStyles = "my-[30px] p-[20px] rounded-[0.2cm] shadow-[0_4px_6px_-1px_#0000001A] ";
+	const sectionStyles =
+		"my-[20px] p-[15px] rounded-[0.3cm] max-[600px]:shadow-[0_4px_6px_-1px_#0000001A] ";
 
 	const titleStyles =
-		"text-[30px] font-[700] mb-[10px] text-[#3D3737] text-center max-[600px]:text-[20px] max-[600px]:mb-0 ";
+		"text-[25px] font-[650] mb-[5px] text-[#3D3737] text-center max-[600px]:text-[18px] max-[600px]:mb-0 ";
 
 	const contentStyles =
-		"text-[20px] font-[500] text-[#645757] text-center max-[600px]:text-[12px] ";
+		"text-[20px] font-[500] text-[#645757] text-center max-[600px]:text-[14px] ";
 
 	return (
-		<div className="about w-10/12 mx-auto">
+		<div className="about w-9/12 mx-auto max-[600px]:w-11/12">
 			<div className={sectionStyles + "bg-[#FFE6E6]"}>
 				<h1 className={titleStyles}>ABOUT US</h1>
 				<p className={contentStyles}>

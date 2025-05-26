@@ -37,7 +37,7 @@ const MenuItemCard = ({ menuItem }) => {
 	const { name, description, imageId, price, defaultPrice, ratings } = menuItem;
 
 	const addToCartBtnStyles =
-		"w-[120px] absolute left-[18px] bottom-[-3px] flex text-[20px] text-[#1BA672] font-[700] tracking-[-0.5px] bg-[#FFF] rounded-[0.2cm] shadow-[0px_5px_10px_#E9E9E9] max-[600px]:text-[15px] max-[600px]:w-[24vw] max-[600px]:left-[2vw] max-[600px]:bottom-[-2.5vw] max-[500px]:bottom-[-3.5vw] ";
+		"absolute w-[120px] left-[18px] bottom-[-3px] flex text-[20px] text-[#1BA672] font-[700] tracking-[-0.5px] bg-[#FFF] rounded-[0.2cm] shadow-[0px_5px_10px_#E9E9E9] max-[600px]:text-[15px] max-[600px]:w-[24vw] max-[600px]:left-[2vw] max-[600px]:bottom-[-2.5vw] max-[500px]:bottom-[-3.5vw] ";
 
 	return (
 		<div className="menu-item-card">
@@ -57,20 +57,22 @@ const MenuItemCard = ({ menuItem }) => {
 							? `(${ratings.aggregatedRating.ratingCountV2})`
 							: null}
 					</h5>
-					<p className="text-[16px] text-[#02060C99] font-[500] overflow-hidden text-ellipsis max-[600px]:text-[14px] max-[600px]:tracking-[-0.6px]">
+					<p className="text-[16px] text-[#02060C99] font-[500] line-clamp-2 line-break-anyword max-[600px]:text-[14px] max-[600px]:tracking-[-0.6px]">
 						{description}
 					</p>
 				</div>
-				<div className="menu-item-img flex flex-col relative mr-[20px] max-[760px]:mr-[5px] max-[600px]:my-auto">
-					{imageId && (
-						<img
-							className="h-[135px] w-[156px] rounded-[0.3cm] object-cover overflow-hidden max-[600px]:w-[28vw] max-[600px]:h-[100px]"
-							src={SWIGGY_MEDIA_ASSETS_URL + imageId}
-							onContextMenu={(e) => e.preventDefault()}
-							onDragStart={(e) => e.preventDefault()}
-							alt={name}
-						/>
-					)}
+				<div className="menu-item-img relative flex flex-col mr-[20px] max-[760px]:mr-[5px] max-[600px]:my-auto">
+					<div className="h-[135px] w-[156px] max-[600px]:w-[28vw] max-[600px]:h-[100px]">
+						{imageId && (
+							<img
+								src={SWIGGY_MEDIA_ASSETS_URL + imageId}
+								alt={name}
+								className="h-full w-full rounded-[0.3cm] object-cover overflow-hidden"
+								onContextMenu={(e) => e.preventDefault()}
+								onDragStart={(e) => e.preventDefault()}
+							/>
+						)}
+					</div>
 					{menuItemCard.itemsInCart <= 0 ? (
 						<div
 							className={

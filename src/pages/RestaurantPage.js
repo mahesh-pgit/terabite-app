@@ -6,7 +6,7 @@ import { SWIGGY_MEDIA_ASSETS_URL } from "../assets/assets";
 import { MENU_ICON_URL } from "../assets/assets";
 import RestaurantMenu from "../features/menu/RestaurantMenu";
 import LocationWarning from "../components/LocationWarning";
-import OnlineError from "../components/OnlineError";
+import OfflineError from "../components/OfflineError";
 
 const RestaurantPage = () => {
 	const { resId } = useParams();
@@ -22,7 +22,7 @@ const RestaurantPage = () => {
 			</>
 		);
 
-	if (onlineStatus === false) return <OnlineError />;
+	if (onlineStatus === false) return <OfflineError />;
 
 	const {
 		cloudinaryImageId,
@@ -38,14 +38,14 @@ const RestaurantPage = () => {
 
 	return (
 		<div className="res-page w-[800px] mx-[auto] mt-[30px] max-[820px]:w-[98%] max-[820px]:mt-[10px]">
-			<div className="res-info-card flex border-1 border-[#E9E9E9] rounded-[0.3cm] shadow-[0px_5px_10px_#E9E9E9]">
+			<div className="res-info-card flex border-1 border-[#E9E9E9] rounded-[0.3cm] shadow-[3px_3px_10px_#E9E9E9]">
 				<div className="res-img m-[20px] max-[600px]:m-[10px]">
 					<img
-						className="h-[175px] w-[175px] rounded-[0.3cm] object-cover overflow-hidden max-[600px]:h-[125px] max-[600px]:w-[125px]"
 						src={SWIGGY_MEDIA_ASSETS_URL + cloudinaryImageId}
+						alt="restaurant-image"
+						className="h-[175px] w-[175px] rounded-[0.3cm] object-cover overflow-hidden max-[600px]:h-[125px] max-[600px]:w-[125px]"
 						onContextMenu={(e) => e.preventDefault()}
 						onDragStart={(e) => e.preventDefault()}
-						alt="restaurant-image"
 					/>
 				</div>
 				<div className="res-info flex flex-col my-[20px] max-[600px]:my-[12px]">
@@ -78,11 +78,11 @@ const RestaurantPage = () => {
 			<div>
 				<div className="flex justify-center mt-[20px] mb-[10px]">
 					<img
-						className="h-[35px] w-[35px] p-[4px] max-[600px]:h-[23px] max-[600px]:w-[23px] max-[600px]:p-[2px]"
 						src={MENU_ICON_URL}
+						alt="menu-icon"
+						className="h-[35px] w-[35px] p-[4px] max-[600px]:h-[23px] max-[600px]:w-[23px] max-[600px]:p-[2px]"
 						onContextMenu={(e) => e.preventDefault()}
 						onDragStart={(e) => e.preventDefault()}
-						alt="menu-icon"
 					/>
 					<h1 className="text-[25px] font-[500] max-[600px]:text-[18px]">MENU</h1>
 				</div>
