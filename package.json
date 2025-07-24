@@ -2,8 +2,10 @@
   "name": "terabite-app",
   "version": "2.0.0",
   "description": "Terabite Application developed by Mahesh Narava using React, Tailwind, Redux and Parcel",
+  "author": "Mahesh Narava",
+  "license": "ISC",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel index.html --open",
     "build": "parcel build index.html",
     "test": "jest"
   },
@@ -17,12 +19,10 @@
     "ordering",
     "online"
   ],
-  "author": "Mahesh Narava",
-  "license": "ISC",
+  "homepage": "https://github.com/mahesh-pgit/terabite-app#readme",
   "bugs": {
     "url": "https://github.com/mahesh-pgit/terabite-app/issues"
   },
-  "homepage": "https://github.com/mahesh-pgit/terabite-app#readme",
   "dependencies": {
     "@react-oauth/google": "^0.12.1",
     "@reduxjs/toolkit": "^2.7.0",

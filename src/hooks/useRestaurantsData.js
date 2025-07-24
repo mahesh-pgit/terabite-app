@@ -22,13 +22,24 @@ const useRestaurantsData = () => {
 
 	const fetchData = async (lat, lng) => {
 		try {
-			const response = await fetch(`/api/restaurants?lat=${lat}&lng=${lng}`);
+			let response = await fetch(`/api/restaurants?lat=${lat}&lng=${lng}`);
 			if (!response.ok) {
 				throw new Error("Response not OK");
 			}
-			const jsonData = await response.json();
-			const data =
+			let jsonData = await response.json();
+			let data =
 				jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+			if (!data) {
+				response = await fetch("/api/restaurants?lat=17.4434646&lng=78.3771953");
+				if (!response.ok) {
+					throw new Error("Response not OK");
+				}
+				jsonData = await response.json();
+				data =
+					jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+			}
+
 			setAllRestaurantsList(data);
 			setRestaurantsList(data);
 		} catch (error) {
