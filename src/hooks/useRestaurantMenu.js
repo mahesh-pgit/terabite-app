@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import getUserLocation from "../services/getUserLocation";
+import { API_BASE_URL } from "../config/apiBaseUrl";
 
 const useRestaurantMenu = (restaurantId) => {
 	const [restaurantMenuData, setRestaurantMenuData] = useState(null);
@@ -21,7 +22,7 @@ const useRestaurantMenu = (restaurantId) => {
 	const fetchMenu = async (lat, lng, restaurantId) => {
 		try {
 			const response = await fetch(
-				`/api/menu?lat=${lat}&lng=${lng}&restaurantId=${restaurantId}`
+				`${API_BASE_URL}/menu?lat=${lat}&lng=${lng}&restaurantId=${restaurantId}`
 			);
 			if (!response.ok) {
 				throw new Error("Response not OK");

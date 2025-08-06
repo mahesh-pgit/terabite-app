@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import getUserLocation from "../services/getUserLocation";
+import { API_BASE_URL } from "../config/apiBaseUrl";
 
 const useRestaurantsData = () => {
 	const [restaurantsList, setRestaurantsList] = useState([]);
@@ -22,7 +23,7 @@ const useRestaurantsData = () => {
 
 	const fetchData = async (lat, lng) => {
 		try {
-			let response = await fetch(`/api/restaurants?lat=${lat}&lng=${lng}`);
+			let response = await fetch(`${API_BASE_URL}/restaurants?lat=${lat}&lng=${lng}`);
 			if (!response.ok) {
 				throw new Error("Response not OK");
 			}
@@ -31,7 +32,7 @@ const useRestaurantsData = () => {
 				jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
 			if (!data) {
-				response = await fetch("/api/restaurants?lat=17.4434646&lng=78.3771953");
+				response = await fetch(`${API_BASE_URL}/restaurants?lat=17.4434646&lng=78.3771953`);
 				if (!response.ok) {
 					throw new Error("Response not OK");
 				}
