@@ -1,11 +1,13 @@
 {
   "name": "terabite-app",
   "version": "2.0.0",
-  "description": "Terabite Application developed by Mahesh Narava using React, Tailwind, Redux and Parcel",
+  "description": "Terabite Application developed by Mahesh Narava using ReactJS, ReduxToolKit, TailwindCSS, and Parcel Bundler.",
   "author": "Mahesh Narava",
   "license": "ISC",
   "scripts": {
     "start": "parcel index.html --open",
+    "host": "parcel index.html --host 0.0.0.0",
+    "ngrok": "ngrok http 1234",
     "build": "parcel build index.html",
     "test": "jest"
   },
