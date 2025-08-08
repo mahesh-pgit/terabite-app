@@ -13,26 +13,28 @@
 [![Parcel](https://img.shields.io/badge/Parcel-b41437?style=flat-square&logo=parcel&logoColor=white)](https://parceljs.org/)
 
 [![Vercel](https://img.shields.io/badge/deployed%20on-vercel-black?style=flat-square&logo=vercel)](https://terabite.vercel.app)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square&)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square&)](LICENSE.md)
 
 ## 📸 Live Preview
 
-Explore the app live to experience smooth restaurant browsing and seamless cart management 👉 [Check it out on Vercel](https://terabite.vercel.app)
+Explore the app live to experience smooth restaurant browsing and seamless cart management
+
+👉 [Check it out on Vercel](https://terabite.vercel.app)
 
 ## 📚 Table of Contents
 
--   [🧩 Features](#🧩-features)
--   [🧑‍🍳 Layout & Pages](#🧑‍🍳-layout--pages)
--   [⚙️ Tech Stack](#⚙️-tech-stack)
--   [🧠 State Management](#🧠-state-management)
--   [🔐 Authentication](#🔐-authentication)
--   [📡 API Endpoints](#📡-api-endpoints)
--   [📁 Project Structure](#📁-project-structure)
--   [🧪 Getting Started](#🧪-getting-started)
--   [🧭 Future Roadmap Ideas](#🧭-future-roadmap-ideas)
--   [🤝 Contributing](#🤝-contributing)
--   [📄 License](#📄-license)
--   [🧑‍💻 Author](#🧑‍💻-author)
+-   [🧩 Features](#-features)
+-   [🧑‍🍳 Layout & Pages](#-layout--pages)
+-   [⚙️ Tech Stack](#%EF%B8%8F-tech-stack)
+-   [🧠 State Management](#-state-management)
+-   [🔐 Authentication](#-authentication)
+-   [📡 API Endpoints](#-api-endpoints)
+-   [📁 Project Structure](#-project-structure)
+-   [🧪 Getting Started](#-getting-started)
+-   [🧭 Future Roadmap Ideas](#-future-roadmap-ideas)
+-   [🤝 Contributing](#-contributing)
+-   [📄 License](#-license)
+-   [🧑‍💻 Author](#-author)
 
 ## 🧩 Features
 
@@ -214,7 +216,7 @@ Thank you for helping make TERABITE better!
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE), a permissive open-source license that allows you to freely use, modify, and distribute the software.
+This project is licensed under the [MIT License](LICENSE.md), a permissive open-source license that allows you to freely use, modify, and distribute the software.
 
 By using this project, you agree to the terms specified in the LICENSE file, including the disclaimer of warranties and liabilities.
 
